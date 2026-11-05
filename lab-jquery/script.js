@@ -1,7 +1,9 @@
 
 $(document).ready(function () {
 
-    // CONFIGURACIÓN DE LOS DEPORTES
+    // =====================================
+    // 1. CONFIGURACIÓN DE DEPORTES
+    // =====================================
 
     const themes = {
 
@@ -41,24 +43,25 @@ $(document).ready(function () {
     };
 
 
-    // CAMBIO DINÁMICO DE TEMÁTICA CON JQUERY
+    // =====================================
+    // 2. CAMBIO DINÁMICO DE TEMÁTICA
+    // =====================================
 
     function changeTheme(name) {
 
-        const t = themes[name] || themes.futbol;
+        const t = themes[name];
 
-        // Cambiar clases CSS
+        if (!t) return;
+
         $("body")
             .removeClass("theme-futbol theme-wally theme-futsal")
             .addClass("theme-" + name);
 
-        // Actualizar tarjeta seleccionada
         $(".sport-card").removeClass("active");
 
         $('.sport-card[data-sport="' + name + '"]')
             .addClass("active");
 
-        // Animación y cambio de contenido
         $(".hero-photo").stop(true, true).fadeTo(160, 0.35, function () {
 
             $("#hero-mode").text(t.mode);
@@ -81,24 +84,29 @@ $(document).ready(function () {
 
         });
 
-        // Sincronizar selector de reserva
         $("#sport-select").val(name);
+
+        const formValues = {
+            futbol: "Fútbol",
+            wally: "Wally",
+            futsal: "Futsal"
+        };
+
+        $("#form-sport").val(formValues[name]);
 
     }
 
 
-    // EVENTO DE SELECCIÓN DE DEPORTE
+    // Seleccionar deporte mediante tarjetas
 
     $(".sport-card").on("click", function () {
 
-        const sport = $(this).data("sport");
-
-        changeTheme(sport);
+        changeTheme($(this).data("sport"));
 
     });
 
 
-    // CAMBIAR DEPORTE DESDE EL SELECTOR
+    // Seleccionar deporte desde la calculadora
 
     $("#sport-select").on("change", function () {
 
@@ -107,7 +115,9 @@ $(document).ready(function () {
     });
 
 
-    // EFECTOS VISUALES Y DESPLIEGUE
+    // =====================================
+    // 3. ANIMACIONES JQUERY
+    // =====================================
 
     $(".feature").hide().each(function (i) {
 
@@ -115,8 +125,6 @@ $(document).ready(function () {
 
     });
 
-
-    // Animación al pasar el cursor
 
     $(".feature")
 
@@ -137,12 +145,245 @@ $(document).ready(function () {
         });
 
 
-    // Efecto de aparición del texto
-
     $("#hero-description").hide().slideDown(600);
 
 
-    // CALCULADORA DE TARIFAS
+    // =====================================
+    // 4. MENÚ HAMBURGUESA
+    // =====================================
+
+    $("#menu-toggle").on("click", function () {
+
+        const menu = $("#main-menu");
+
+        menu.toggleClass("open");
+
+        const expanded = menu.hasClass("open");
+
+        $(this).attr("aria-expanded", expanded);
+
+        $(this).attr(
+            "aria-label",
+            expanded ? "Cerrar menú" : "Abrir menú"
+        );
+
+    });
+
+
+    // Cerrar menú después de seleccionar una sección
+
+    $("#main-menu a").on("click", function () {
+
+        $("#main-menu").removeClass("open");
+
+        $("#menu-toggle")
+            .attr("aria-expanded", "false")
+            .attr("aria-label", "Abrir menú");
+
+    });
+
+
+    // =====================================
+    // 5. MODO OSCURO Y MODO CLARO
+    // =====================================
+
+    function applyTheme(theme) {
+
+        $("body").toggleClass(
+            "light-mode",
+            theme === "light"
+        );
+
+        $("#theme-toggle").text(
+            theme === "light" ? "🌙" : "☀️"
+        );
+
+        localStorage.setItem(
+            "deporzone-theme",
+            theme
+        );
+
+    }
+
+
+    // Recuperar preferencia guardada
+
+    const savedTheme =
+        localStorage.getItem("deporzone-theme") || "dark";
+
+    applyTheme(savedTheme);
+
+
+    $("#theme-toggle").on("click", function () {
+
+        const newTheme =
+            $("body").hasClass("light-mode")
+                ? "dark"
+                : "light";
+
+        applyTheme(newTheme);
+
+    });
+
+
+    // =====================================
+    // 6. FILTRO DE DEPORTES
+    // =====================================
+
+    $(".filter-btn").on("click", function () {
+
+        const filter = $(this).data("filter");
+
+        $(".filter-btn").removeClass("active");
+
+        $(this).addClass("active");
+
+        let visible = 0;
+
+        $(".sport-card").each(function () {
+
+            const category = $(this).data("category");
+
+            if (filter === "all" || category === filter) {
+
+                $(this).stop(true, true).fadeIn(300);
+
+                visible++;
+
+            } else {
+
+                $(this).stop(true, true).fadeOut(200);
+
+            }
+
+        });
+
+
+        if (filter === "all") {
+
+            $("#filter-result").text(
+                "Mostrando todos los deportes."
+            );
+
+        } else {
+
+            $("#filter-result").text(
+                "Mostrando " + visible + " deporte seleccionado."
+            );
+
+        }
+
+    });
+
+
+    // =====================================
+    // 7. CARRUSEL AUTOMÁTICO
+    // =====================================
+
+    let currentSlide = 0;
+
+    const slides = $(".carousel-slide");
+
+    const dots = $(".dot");
+
+    const totalSlides = slides.length;
+
+    let carouselTimer;
+
+
+    function showSlide(index) {
+
+        currentSlide =
+            (index + totalSlides) % totalSlides;
+
+        slides.removeClass("active");
+
+        dots.removeClass("active");
+
+        slides.eq(currentSlide).addClass("active");
+
+        dots.eq(currentSlide).addClass("active");
+
+    }
+
+
+    // Siguiente imagen
+
+    $("#next-slide").on("click", function () {
+
+        showSlide(currentSlide + 1);
+
+        restartCarousel();
+
+    });
+
+
+    // Imagen anterior
+
+    $("#prev-slide").on("click", function () {
+
+        showSlide(currentSlide - 1);
+
+        restartCarousel();
+
+    });
+
+
+    // Selección mediante puntos
+
+    $(".dot").on("click", function () {
+
+        showSlide(Number($(this).data("slide")));
+
+        restartCarousel();
+
+    });
+
+
+    // Cambio automático cada cinco segundos
+
+    function startCarousel() {
+
+        carouselTimer = setInterval(function () {
+
+            showSlide(currentSlide + 1);
+
+        }, 5000);
+
+    }
+
+
+    function restartCarousel() {
+
+        clearInterval(carouselTimer);
+
+        startCarousel();
+
+    }
+
+
+    // Pausar al colocar el cursor sobre el carrusel
+
+    $(".carousel").on("mouseenter", function () {
+
+        clearInterval(carouselTimer);
+
+    });
+
+
+    $(".carousel").on("mouseleave", function () {
+
+        restartCarousel();
+
+    });
+
+
+    startCarousel();
+
+
+    // =====================================
+    // 8. CALCULADORA DE TARIFAS
+    // =====================================
 
     // Precio por hora: 40 BOB
 
@@ -151,15 +392,16 @@ $(document).ready(function () {
         let hours = parseInt($("#hours").val(), 10);
 
         if (isNaN(hours)) {
+
             hours = 1;
+
         }
 
-        // Mínimo 1 hora y máximo 12 horas
         hours = Math.max(1, Math.min(12, hours));
 
         $("#hours").val(hours);
 
-        let total = hours * 40;
+        const total = hours * 40;
 
         $("#total")
             .html(total + " <small>BOB</small>")
@@ -169,42 +411,159 @@ $(document).ready(function () {
     }
 
 
-    // Actualización en tiempo real
+    // Actualizar cuando se modifica el número de horas
 
-    $("#hours").on("input change", function () {
-
-        updateTotal();
-
-    });
+    $("#hours").on("input change", updateTotal);
 
 
-    // Botón para restar horas
+    // Restar una hora
 
     $("#minus").on("click", function () {
 
-        let hours = parseInt($("#hours").val(), 10) || 1;
+        const hours =
+            parseInt($("#hours").val(), 10) || 1;
 
-        $("#hours").val(Math.max(1, hours - 1));
+        $("#hours").val(
+            Math.max(1, hours - 1)
+        );
 
         updateTotal();
 
     });
 
 
-    // Botón para aumentar horas
+    // Agregar una hora
 
     $("#plus").on("click", function () {
 
-        let hours = parseInt($("#hours").val(), 10) || 1;
+        const hours =
+            parseInt($("#hours").val(), 10) || 1;
 
-        $("#hours").val(Math.min(12, hours + 1));
+        $("#hours").val(
+            Math.min(12, hours + 1)
+        );
 
         updateTotal();
 
     });
 
 
-    // VENTANA MODAL DE CONFIRMACIÓN
+    // =====================================
+    // 9. FECHA MÍNIMA DEL FORMULARIO
+    // =====================================
+
+    const today = new Date();
+
+    const localDate = new Date(
+        today.getTime() -
+        today.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    $("#fecha").attr("min", localDate);
+
+
+    // =====================================
+    // 10. VALIDACIÓN DEL FORMULARIO
+    // =====================================
+
+    $("#reservation-form").on("submit", function (e) {
+
+        e.preventDefault();
+
+        const nombre = $("#nombre").val().trim();
+
+        const telefono = $("#telefono").val().trim();
+
+        const correo = $("#correo").val().trim();
+
+        const fecha = $("#fecha").val();
+
+        const hora = $("#hora").val();
+
+        const deporte = $("#form-sport").val();
+
+        const comentario = $("#comentario").val().trim();
+
+
+        // Comprobar campos obligatorios
+
+        if (!this.checkValidity()) {
+
+            this.reportValidity();
+
+            return;
+
+        }
+
+
+        // Evitar nombres demasiado cortos
+
+        if (nombre.length < 3) {
+
+            $("#form-message")
+                .css("color", "#e76b6b")
+                .text("El nombre debe tener al menos 3 caracteres.");
+
+            return;
+
+        }
+
+
+        // Evitar fechas pasadas
+
+        if (fecha < localDate) {
+
+            $("#form-message")
+                .css("color", "#e76b6b")
+                .text("No puedes seleccionar una fecha pasada.");
+
+            return;
+
+        }
+
+
+        // Confirmación visual
+
+        $("#form-message")
+            .hide()
+            .css("color", "#49d6b4")
+            .text(
+                "¡Solicitud recibida, " + nombre +
+                "! Tu solicitud de " + deporte +
+                " para el día " + fecha +
+                " a las " + hora +
+                " ha sido registrada en esta demostración."
+            )
+            .fadeIn(400);
+
+
+        // Mostrar datos en consola para la demostración
+
+        console.log("DATOS DE LA SOLICITUD");
+
+        console.log({
+            nombre: nombre,
+            telefono: telefono,
+            correo: correo,
+            fecha: fecha,
+            hora: hora,
+            deporte: deporte,
+            comentario: comentario
+        });
+
+
+        // Limpiar formulario
+
+        this.reset();
+
+        $("#fecha").attr("min", localDate);
+
+    });
+
+
+    // =====================================
+    // 11. VENTANA MODAL
+    // =====================================
 
     let timer = null;
 
@@ -225,28 +584,28 @@ $(document).ready(function () {
     }
 
 
-    // ABRIR MODAL
+    // Abrir ventana modal
 
     $("#confirm").on("click", function () {
 
         updateTotal();
 
-        const sport = $("#sport-select option:selected").text();
+        const sport =
+            $("#sport-select option:selected").text();
 
-        const hours = Number($("#hours").val());
+        const hours =
+            Number($("#hours").val());
 
         const total = hours * 40;
 
 
-        // Mostrar resumen de la reserva
+        // Preparar resumen
 
         $("#summary").text(
-
             "Elegiste " + sport +
             " durante " + hours +
             " hora(s). Total: " + total +
             " BOB. Es una demostración académica."
-
         );
 
 
@@ -257,7 +616,7 @@ $(document).ready(function () {
             .text("Sí, confirmar");
 
 
-        // Mostrar ventana modal
+        // Mostrar modal
 
         $("#modal")
             .css("display", "flex")
@@ -266,7 +625,7 @@ $(document).ready(function () {
             .fadeIn(220);
 
 
-        // INICIAR TEMPORIZADOR DE 30 SEGUNDOS
+        // Iniciar temporizador
 
         seconds = 30;
 
@@ -282,7 +641,7 @@ $(document).ready(function () {
             $("#countdown").text(seconds);
 
 
-            // Cerrar automáticamente al llegar a cero
+            // Cerrar al llegar a cero
 
             if (seconds <= 0) {
 
@@ -299,25 +658,21 @@ $(document).ready(function () {
     });
 
 
-    // BOTÓN CERRAR
+    // =====================================
+    // 12. BOTONES DEL MODAL
+    // =====================================
 
-    $("#close").on("click", function () {
+    // Cerrar con la X
 
-        closeModal();
-
-    });
-
-
-    // BOTÓN VOLVER
-
-    $("#cancel").on("click", function () {
-
-        closeModal();
-
-    });
+    $("#close").on("click", closeModal);
 
 
-    // CERRAR AL HACER CLIC FUERA DE LA VENTANA
+    // Volver
+
+    $("#cancel").on("click", closeModal);
+
+
+    // Cerrar al hacer clic fuera de la ventana
 
     $("#modal").on("click", function (e) {
 
@@ -330,7 +685,7 @@ $(document).ready(function () {
     });
 
 
-    // CONFIRMAR RESERVA
+    // Confirmar solicitud
 
     $("#accept").on("click", function () {
 
@@ -344,12 +699,20 @@ $(document).ready(function () {
             .prop("disabled", true)
             .text("Confirmado ✓");
 
-        setTimeout(closeModal, 1500);
+        setTimeout(function () {
+
+            closeModal();
+
+        }, 1500);
 
     });
 
 
-    // INICIALIZAR CALCULADORA
+    // =====================================
+    // 13. ANIMACIONES INICIALES
+    // =====================================
+
+    $(".gallery").hide().fadeIn(700);
 
     updateTotal();
 
