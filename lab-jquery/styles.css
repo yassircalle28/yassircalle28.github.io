@@ -1,0 +1,936 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #080e19;
+    color: #f7f8fb;
+    font-family: 'DM Sans', sans-serif;
+
+    --accent: #e8bd55;
+    --glow: rgba(232,189,85,.17);
+
+    overflow-x: hidden;
+}
+
+body.theme-wally {
+    --accent: #49d6b4;
+    --glow: rgba(73,214,180,.17);
+}
+
+body.theme-futsal {
+    --accent: #ff8068;
+    --glow: rgba(255,128,104,.17);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+/* ENCABEZADO */
+
+.topbar {
+    height: 82px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ffffff12;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+
+    background: var(--accent);
+    color: #111827;
+
+    display: grid;
+    place-items: center;
+
+    font: 800 17px Outfit;
+}
+
+.brand b,
+.brand small {
+    display: block;
+}
+
+.brand b {
+    font: 700 17px Outfit;
+}
+
+.brand small {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #8994a7;
+    margin-top: 3px;
+}
+
+.topbar nav {
+    display: flex;
+    gap: 32px;
+    font-size: 12px;
+    color: #aab4c4;
+}
+
+.topbar nav a:hover {
+    color: var(--accent);
+}
+
+.nav-cta {
+    border: 1px solid #ffffff30;
+    border-radius: 25px;
+    padding: 11px 16px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* PORTADA */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 76px 25px 75px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.eyebrow i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 7px;
+}
+
+h1, h2, h3 {
+    font-family: Outfit, sans-serif;
+}
+
+h1 {
+    font-size: clamp(48px, 6vw, 74px);
+    letter-spacing: -3px;
+    line-height: .98;
+    margin: 23px 0;
+}
+
+h1 em,
+h2 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.hero-copy > p,
+.booking-copy > p {
+    max-width: 450px;
+    color: #a5afc0;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 27px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 9px;
+    padding: 14px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+}
+
+.primary {
+    background: var(--accent);
+    color: #111827;
+}
+
+.simple-link {
+    font-size: 11px;
+    color: #d4dae4;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 52px;
+}
+
+.stats div b,
+.stats div small {
+    display: block;
+}
+
+.stats div b {
+    font: 700 22px Outfit;
+}
+
+.stats div small {
+    font-size: 9px;
+    color: #8994a7;
+    margin-top: 3px;
+}
+
+.stats > i {
+    height: 30px;
+    width: 1px;
+    background: #ffffff25;
+}
+
+/* FONDOS DEPORTIVOS */
+
+.visual {
+    position: relative;
+    padding: 0 0 27px 20px;
+}
+
+.hero-photo {
+    height: 420px;
+    border-radius: 19px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(0deg, #050a15c9, transparent 65%),
+        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=85')
+        center/cover;
+
+    box-shadow: 0 28px 75px #0008;
+}
+
+.photo-label {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.photo-label > span {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #101827;
+
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+}
+
+.photo-label b,
+.photo-label small {
+    display: block;
+}
+
+.photo-label b {
+    font: 700 11px Outfit;
+    letter-spacing: 1px;
+}
+
+.photo-label small {
+    font-size: 8px;
+    color: #d3d9e3;
+    margin-top: 4px;
+}
+
+.watermark {
+    position: absolute;
+    right: 25px;
+    top: 100px;
+
+    width: 150px;
+    height: 165px;
+
+    border: 7px double #ffffff24;
+    border-radius: 48% 48% 35% 35%;
+
+    display: grid;
+    place-items: center;
+
+    color: #ffffff35;
+    font: 800 46px Outfit;
+    transform: rotate(7deg);
+}
+
+.photo-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 23px;
+    right: 23px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.photo-bottom i {
+    height: 1px;
+    background: #ffffff80;
+    flex: 1;
+}
+
+.float-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: #fff;
+    color: #101827;
+
+    border-radius: 12px;
+    padding: 13px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 230px;
+    box-shadow: 0 12px 35px #0007;
+}
+
+.float-card > span {
+    width: 38px;
+    height: 38px;
+    background: #eef0f4;
+    border-radius: 10px;
+
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+}
+
+.float-card b,
+.float-card small {
+    display: block;
+}
+
+.float-card b {
+    font: 700 11px Outfit;
+}
+
+.float-card small {
+    font-size: 9px;
+    color: #858e9d;
+    margin-top: 4px;
+}
+
+.float-card strong {
+    margin-left: auto;
+}
+
+/* SECCIONES */
+
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 60px 25px;
+    border-top: 1px solid #ffffff12;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.section-heading h2,
+.booking-copy h2 {
+    font-size: 34px;
+    letter-spacing: -1px;
+    margin: 9px 0 0;
+}
+
+.section-heading > p {
+    max-width: 300px;
+    color: #929eb0;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* DEPORTES */
+
+.sports,
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.sport-card {
+    border: 1px solid #293449;
+    border-radius: 13px;
+    background: #111c2d;
+    color: white;
+
+    padding: 19px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    text-align: left;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.sport-card:hover,
+.sport-card.active {
+    border-color: var(--accent);
+    background: linear-gradient(120deg, var(--glow), #111c2d);
+    transform: translateY(-3px);
+}
+
+.sport-icon {
+    width: 47px;
+    height: 47px;
+    border-radius: 12px;
+    background: #243146;
+
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+}
+
+.sport-card span:nth-child(2) {
+    flex: 1;
+}
+
+.sport-card b,
+.sport-card small {
+    display: block;
+}
+
+.sport-card b {
+    font: 700 15px Outfit;
+}
+
+.sport-card small {
+    font-size: 9px;
+    color: #9ba6b7;
+    margin-top: 4px;
+}
+
+.sport-card > strong {
+    color: var(--accent);
+}
+
+/* SERVICIOS */
+
+.feature {
+    border: 1px solid #293449;
+    border-radius: 13px;
+    padding: 23px;
+
+    background: linear-gradient(145deg, #17243a, #0d1523);
+    position: relative;
+}
+
+.feature > span {
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+
+    background: var(--glow);
+    color: var(--accent);
+
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+}
+
+.feature h3 {
+    font-size: 15px;
+    margin: 17px 0 7px;
+}
+
+.feature p {
+    font-size: 10px;
+    color: #9ba6b7;
+    line-height: 1.7;
+}
+
+/* RESERVAS */
+
+.booking {
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    gap: 85px;
+    align-items: center;
+
+    padding-top: 85px;
+    padding-bottom: 95px;
+}
+
+.booking-copy h2 {
+    font-size: 50px;
+    line-height: 1.05;
+    margin: 15px 0;
+}
+
+.note {
+    margin-top: 25px;
+    padding: 13px 15px;
+
+    border-left: 2px solid var(--accent);
+    background: var(--glow);
+
+    font-size: 10px;
+    color: #cbd2dd;
+}
+
+.note b {
+    color: #fff;
+}
+
+.calculator {
+    background: #f8f9fc;
+    color: #152033;
+
+    border-radius: 17px;
+    padding: 28px;
+
+    box-shadow: 0 25px 65px #0006;
+}
+
+.calc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.calc-head h3 {
+    font-size: 22px;
+    margin: 6px 0 0;
+}
+
+.available {
+    font-size: 8px;
+    color: #13824d;
+    background: #e2f6eb;
+    padding: 7px 9px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.calculator label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 16px 0 7px;
+}
+
+.calculator label small {
+    font-weight: 400;
+    color: #7d8797;
+}
+
+.calculator select,
+.hours {
+    height: 44px;
+    width: 100%;
+    border: 1px solid #dfe3eb;
+    border-radius: 8px;
+    background: white;
+    color: #182338;
+}
+
+.calculator select {
+    padding: 0 10px;
+}
+
+.hours {
+    display: flex;
+    overflow: hidden;
+}
+
+.hours button {
+    width: 45px;
+    border: 0;
+    background: #eef0f4;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hours input {
+    width: 50px;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.price-line,
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-line {
+    padding: 18px 0 12px;
+    color: #778195;
+    font-size: 10px;
+}
+
+.price-line b {
+    color: #1b273a;
+}
+
+.total {
+    padding: 14px 0 18px;
+    border-top: 1px solid #e5e8ee;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.total strong {
+    font: 800 26px Outfit;
+}
+
+.total small {
+    font: 700 10px 'DM Sans';
+    color: #7d8797;
+}
+
+.confirm {
+    width: 100%;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 8px;
+    color: #929aaa;
+    margin: 11px 0 0;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    max-width: 1150px;
+    margin: auto;
+    padding: 23px 25px 30px;
+
+    border-top: 1px solid #ffffff17;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #8490a3;
+    font-size: 9px;
+}
+
+footer .logo {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+}
+
+footer .brand b {
+    font-size: 14px;
+}
+
+/* VENTANA MODAL */
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    background: #020711c9;
+    backdrop-filter: blur(7px);
+
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.modal {
+    position: relative;
+    width: min(430px, 100%);
+    padding: 32px;
+
+    background: #f8f9fc;
+    color: #172033;
+
+    border-radius: 18px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+
+    border: 0;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.check {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background: #e1f6eb;
+    color: #13824d;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 24px;
+    margin: 0 auto 15px;
+}
+
+.modal h2 {
+    font: 700 24px Outfit;
+    margin: 12px 0;
+}
+
+.modal > p {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #687488;
+}
+
+.timer {
+    font-size: 10px;
+    color: #7b8596;
+    margin: 20px 0;
+}
+
+.timer b {
+    font: 700 19px Outfit;
+    color: #dc774b;
+    margin: 0 4px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+.secondary {
+    background: #e9edf3;
+    color: #26344b;
+}
+
+.modal-message {
+    color: #13824d !important;
+    font-weight: 700;
+}
+
+/* TEMAS DINÁMICOS */
+
+.theme-wally .hero-photo {
+    background-image:
+        linear-gradient(0deg, #041511bb, transparent 65%),
+        url('https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=1400&q=85');
+
+    background-position: center;
+    background-size: cover;
+}
+
+.theme-wally .watermark {
+    border-radius: 15px;
+    transform: rotate(-4deg);
+    font-size: 30px;
+}
+
+.theme-futsal .hero-photo {
+    background-image:
+        linear-gradient(0deg, #170907bb, transparent 65%),
+        url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=85');
+
+    background-position: center;
+    background-size: cover;
+}
+
+.theme-futsal .watermark {
+    border-radius: 50%;
+    transform: none;
+    font-size: 35px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .visual {
+        max-width: 620px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .booking {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .topbar nav {
+        gap: 15px;
+    }
+}
+
+@media(max-width:600px) {
+
+    .topbar {
+        height: 70px;
+        padding: 0 16px;
+    }
+
+    .topbar nav {
+        display: none;
+    }
+
+    .nav-cta {
+        font-size: 9px;
+        padding: 10px;
+    }
+
+    .hero {
+        padding: 50px 19px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .visual {
+        padding-left: 8px;
+    }
+
+    .hero-photo {
+        height: 325px;
+    }
+
+    .stats {
+        gap: 13px;
+        margin-top: 40px;
+    }
+
+    .stats div b {
+        font-size: 19px;
+    }
+
+    .section {
+        padding: 48px 19px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .section-heading > p {
+        margin-top: 10px;
+    }
+
+    .sports,
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .sport-card {
+        padding: 15px;
+    }
+
+    .booking {
+        padding-top: 60px;
+        padding-bottom: 65px;
+    }
+
+    .booking-copy h2 {
+        font-size: 44px;
+    }
+
+    .calculator {
+        padding: 21px;
+    }
+
+    footer {
+        padding: 20px;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    footer > span:last-child {
+        width: 100%;
+    }
+
+    .modal {
+        padding: 28px 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+}
