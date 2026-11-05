@@ -1,0 +1,1 @@
+Abre index.html con Chrome. Reemplaza assets/foto1.jpg a foto5.jpg por tus cinco fotos y assets/frase1.jpg a frase3.jpg por tus tres imágenes de frases. Cambia href="#" por tus perfiles reales de redes. El formulario valida, pero requiere conectar un servicio para enviar mensajes.

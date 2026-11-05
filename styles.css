@@ -1,0 +1,340 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #101820;
+    color: #eef4f5;
+    font: 16px Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hero {
+    padding: 0 7% 50px;
+    background: linear-gradient(135deg, #101820, #1b3b40);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #ffffff22;
+}
+
+nav b {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+nav b span,
+em,
+small {
+    color: #55d6c2;
+}
+
+nav div {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+}
+
+.intro {
+    text-align: center;
+    padding: 55px 0 20px;
+}
+
+.intro h1 {
+    font-size: clamp(40px, 7vw, 68px);
+    margin: 8px;
+}
+
+.intro em {
+    font-style: normal;
+}
+
+.intro p {
+    color: #bdcbd0;
+}
+
+/* CARRUSEL */
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.carousel button {
+    flex-shrink: 0;
+    border: 0;
+    background: #55d6c2;
+    color: #102020;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.slides {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    width: 100%;
+    min-height: 210px;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides img {
+    display: none;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 12px;
+    opacity: 1;
+}
+
+.slides img.active {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    opacity: 1;
+    outline: 2px solid #55d6c2;
+}
+
+.hint {
+    text-align: center;
+    color: #9eafb4;
+    font-size: 12px;
+}
+
+section {
+    padding: 75px 7%;
+    text-align: center;
+}
+
+section > small {
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 8px 0 28px;
+}
+
+.grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+article {
+    background: #1b2932;
+    border: 1px solid #344750;
+    border-radius: 15px;
+    padding: 24px;
+    text-align: left;
+    font-size: 27px;
+}
+
+article h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+article p {
+    font-size: 14px;
+    color: #b4c2c7;
+}
+
+.alt {
+    background: #17242d;
+}
+
+.tablewrap {
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 650px;
+    background: #1b2932;
+    text-align: left;
+}
+
+td,
+th {
+    padding: 15px;
+    border: 1px solid #344750;
+    font-size: 14px;
+}
+
+th {
+    color: #55d6c2;
+}
+
+#frases img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.contact {
+    background: #17242d;
+}
+
+.contact form {
+    max-width: 560px;
+    margin: 25px auto;
+    background: #1b2932;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: left;
+    display: grid;
+    gap: 8px;
+}
+
+.contact label {
+    display: grid;
+    gap: 7px;
+    font-weight: bold;
+}
+
+.contact input,
+.contact textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #52636b;
+    background: #101820;
+    color: white;
+    font: inherit;
+}
+
+.contact button {
+    padding: 13px;
+    border: 0;
+    border-radius: 25px;
+    background: #55d6c2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact form small {
+    color: #ff9b9b;
+    min-height: 15px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social a {
+    border: 1px solid #55d6c2;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #9eafb4;
+    background: #0b1116;
+}
+
+/* TABLETS */
+
+@media (max-width: 800px) {
+    .four {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    nav div {
+        flex-wrap: wrap;
+    }
+
+    .slides {
+        min-height: 180px;
+    }
+
+    .slides img,
+    .slides img.active {
+        max-height: 400px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 520px) {
+    .four,
+    .three {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    section {
+        padding: 55px 5%;
+    }
+
+    .carousel {
+        gap: 8px;
+    }
+
+    .carousel button {
+        width: 34px;
+        height: 34px;
+        font-size: 21px;
+    }
+
+    .slides {
+        min-height: 180px;
+    }
+
+    .slides img,
+    .slides img.active {
+        max-height: 350px;
+    }
+}
