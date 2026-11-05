@@ -4,125 +4,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeporZone Canchas</title>
+    <title>De porZone Canchas</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #f0f0f0;
-            margin: 0;
-            text-align: center;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        header {
-            background-color: #164b38;
-            color: white;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #a8e6a1;
-        }
-
-        section {
-            background-color: white;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        button {
-            background-color: #198754;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #145c38;
-        }
-
-        input, select {
-            padding: 8px;
-            margin: 10px;
-        }
-
-        footer {
-            background-color: #164b38;
-            color: white;
-            padding: 15px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="theme-futbol">
 
-    <header>
-        <h1>DEPORZONE CANCHAS</h1>
-        <p>Tu pasión, tu cancha, tu momento</p>
-    </header>
+<header class="topbar">
+    <a class="brand" href="#inicio">
+        <span class="logo">DZ+</span>
+        <span>
+            <b>De porZone</b>
+            <small>CANCHAS & EXPERIENCIAS</small>
+        </span>
+    </a>
 
-    <section>
-        <h2>Bienvenidos a DeporZone</h2>
-        <p>
-            Somos una empresa dedicada al alquiler de
-            canchas deportivas para que puedas disfrutar
-            del deporte con tus amigos y familiares.
+    <nav>
+        <a href="#deportes">Deportes</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#reservar">Reservar</a>
+    </nav>
+
+    <a class="nav-cta" href="#reservar">Reserva ahora ↗</a>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-copy">
+
+        <span class="eyebrow">
+            <i></i> TU PRÓXIMO PARTIDO EMPIEZA AQUÍ
+        </span>
+
+        <h1>
+            La cancha que<br>
+            te mueve <em id="hero-word">a jugar.</em>
+        </h1>
+
+        <p id="hero-description">
+            Reúne a tu equipo, elige tu horario y vive el fútbol como se debe.
+            Tu espacio deportivo está a un clic.
         </p>
-    </section>
 
-    <section>
-        <h2>Nuestros Servicios</h2>
+        <div class="actions">
+            <a class="btn primary" href="#reservar">
+                Reservar cancha →
+            </a>
 
-        <h3>⚽ Cancha de Futsal</h3>
-        <p>Disfruta de emocionantes partidos de fútbol.</p>
-        <button>Ver detalles</button>
+            <a class="simple-link" href="#deportes">
+                Explorar deportes ↓
+            </a>
+        </div>
 
-        <h3>🏐 Cancha de Wally</h3>
-        <p>Ven y disfruta de este divertido deporte.</p>
-        <button>Ver detalles</button>
+        <div class="stats">
+            <div><b>3</b><small>deportes</small></div>
+            <i></i>
+            <div><b>40 BOB</b><small>por hora</small></div>
+            <i></i>
+            <div><b>24/7</b><small>reservas online</small></div>
+        </div>
 
-        <h3>🏐 Cancha de Voleibol</h3>
-        <p>Comparte momentos deportivos con tus amigos.</p>
-        <button>Ver detalles</button>
+    </div>
 
-    </section>
+    <div class="visual">
 
-    <section>
-        <h2>Calculadora de Tarifas</h2>
+        <div class="hero-photo">
 
-        <p>Precio por hora: 40 BOB</p>
+            <div class="photo-label">
+                <span id="hero-icon">⚽</span>
 
-        <label>Selecciona tu cancha:</label>
-        <br>
+                <div>
+                    <b id="hero-mode">MODO FÚTBOL</b>
+                    <small>ELIGE TU DEPORTE</small>
+                </div>
+            </div>
 
-        <select>
-            <option>Futsal</option>
-            <option>Wally</option>
-            <option>Voleibol</option>
+            <div class="watermark" id="watermark">FCB</div>
+
+            <div class="photo-bottom">
+                <span>01 / 03</span>
+                <i></i>
+                <span id="hero-tag">PASIÓN AZULGRANA</span>
+            </div>
+
+        </div>
+
+        <div class="float-card">
+            <span id="float-icon">⚽</span>
+
+            <div>
+                <b id="float-title">La pasión se juega</b>
+                <small id="float-sub">En cada minuto.</small>
+            </div>
+
+            <strong>↗</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="deportes">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">ENCUENTRA TU JUEGO</span>
+            <h2>¿Qué vamos a jugar?</h2>
+        </div>
+
+        <p>
+            Selecciona un deporte y descubre una experiencia visual diferente.
+        </p>
+    </div>
+
+    <div class="sports">
+
+        <button class="sport-card active" data-sport="futbol">
+            <span class="sport-icon">⚽</span>
+            <span>
+                <b>Fútbol</b>
+                <small>Pasión de estadio</small>
+            </span>
+            <strong>↗</strong>
+        </button>
+
+        <button class="sport-card" data-sport="wally">
+            <span class="sport-icon">🏐</span>
+            <span>
+                <b>Wally</b>
+                <small>Potencia y precisión</small>
+            </span>
+            <strong>↗</strong>
+        </button>
+
+        <button class="sport-card" data-sport="futsal">
+            <span class="sport-icon">🥅</span>
+            <span>
+                <b>Futsal</b>
+                <small>Ritmo sin pausa</small>
+            </span>
+            <strong>↗</strong>
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="servicios">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">MÁS QUE UNA CANCHA</span>
+            <h2>Todo listo para jugar.</h2>
+        </div>
+
+        <p>
+            Espacios cómodos, reserva sencilla y tiempo para disfrutar.
+        </p>
+    </div>
+
+    <div class="features">
+
+        <article class="feature">
+            <span>◷</span>
+            <h3>Horarios flexibles</h3>
+            <p>
+                Elige la duración de tu partido y organiza tu tiempo.
+            </p>
+        </article>
+
+        <article class="feature">
+            <span>✦</span>
+            <h3>Ambiente deportivo</h3>
+            <p>
+                Un espacio pensado para compartir, competir y divertirse.
+            </p>
+        </article>
+
+        <article class="feature">
+            <span>✓</span>
+            <h3>Reserva fácil</h3>
+            <p>
+                Calcula tu tarifa y confirma tu solicitud en segundos.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="section booking" id="reservar">
+
+    <div class="booking-copy">
+
+        <span class="eyebrow">ASEGURA TU ESPACIO</span>
+
+        <h2>
+            Tu partido.<br>
+            <em>Tu horario.</em>
+        </h2>
+
+        <p>
+            Organiza tu tiempo, selecciona tu deporte y calcula
+            el costo de tu reserva.
+        </p>
+
+        <div class="note">
+            ✦ Tarifa referencial: <b>40 BOB por hora</b>
+        </div>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="calc-head">
+            <div>
+                <span class="eyebrow">CALCULADORA</span>
+                <h3>Arma tu reserva</h3>
+            </div>
+
+            <span class="available">● DISPONIBLE</span>
+        </div>
+
+        <label for="sport-select">
+            Deporte seleccionado
+        </label>
+
+        <select id="sport-select">
+            <option value="futbol">⚽ Fútbol</option>
+            <option value="wally">🏐 Wally</option>
+            <option value="futsal">🥅 Futsal</option>
         </select>
 
-        <br>
+        <label for="hours">
+            Horas de reserva
+            <small>(40 BOB / hora)</small>
+        </label>
 
-        <label>Horas de reserva:</label>
-        <br>
+        <div class="hours">
+            <button id="minus" type="button">−</button>
 
-        <input type="number" min="1" value="1">
+            <input
+                id="hours"
+                type="number"
+                min="1"
+                max="12"
+                value="1"
+            >
 
-        <br>
+            <button id="plus" type="button">+</button>
+        </div>
 
-        <p>Total a pagar: 40 BOB</p>
+        <div class="price-line">
+            <span>Precio por hora</span>
+            <b>40 BOB</b>
+        </div>
 
-        <button>Confirmar Reserva</button>
+        <div class="total">
+            <span>Total a pagar</span>
+            <strong id="total">40 <small>BOB</small></strong>
+        </div>
 
-    </section>
+        <button class="btn primary confirm" id="confirm" type="button">
+            Confirmar reserva →
+        </button>
 
-    <footer>
-        <p>DeporZone Canchas - UPDS 2026</p>
-        <p>¡El deporte nos une!</p>
-    </footer>
+        <p class="disclaimer">
+            * Demostración académica. No procesa pagos reales.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <a class="brand" href="#inicio">
+        <span class="logo">DZ+</span>
+
+        <span>
+            <b>De porZone</b>
+            <small>CANCHAS & EXPERIENCIAS</small>
+        </span>
+    </a>
+
+    <span>Diseño Web II · Laboratorio jQuery</span>
+
+    <span>© 2026 · Hecho para jugar en equipo</span>
+
+</footer>
+
+
+<!-- VENTANA MODAL -->
+
+<div class="modal-backdrop" id="modal" aria-hidden="true">
+
+    <div class="modal">
+
+        <button class="close" id="close">×</button>
+
+        <div class="check">✓</div>
+
+        <span class="eyebrow">CONFIRMACIÓN DE RESERVA</span>
+
+        <h2>¿Confirmamos tu partido?</h2>
+
+        <p id="summary"></p>
+
+        <div class="timer">
+            Esta ventana se cerrará en
+            <b id="countdown">30</b> segundos.
+        </div>
+
+        <div class="modal-actions">
+
+            <button class="btn primary" id="accept">
+                Sí, confirmar
+            </button>
+
+            <button class="btn secondary" id="cancel">
+                Volver
+            </button>
+
+        </div>
+
+        <p class="modal-message" id="modal-message"></p>
+
+    </div>
+
+</div>
+
+
+<!-- LIBRERÍA JQUERY -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- JAVASCRIPT DEL PROYECTO -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
