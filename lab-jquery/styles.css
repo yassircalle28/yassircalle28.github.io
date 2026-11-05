@@ -1,4 +1,8 @@
 
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -17,6 +21,7 @@ body {
     --glow: rgba(232,189,85,.17);
 
     overflow-x: hidden;
+    transition: background .3s, color .3s;
 }
 
 body.theme-wally {
@@ -34,11 +39,42 @@ a {
     text-decoration: none;
 }
 
-button, input, select {
+button, input, select, textarea {
     font: inherit;
 }
 
-/* ENCABEZADO */
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.eyebrow i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 7px;
+}
+
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 em, h2 em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+/* =====================================
+   ENCABEZADO
+===================================== */
 
 .topbar {
     height: 82px;
@@ -51,6 +87,8 @@ button, input, select {
     justify-content: space-between;
 
     border-bottom: 1px solid #ffffff12;
+    position: relative;
+    z-index: 20;
 }
 
 .brand {
@@ -73,6 +111,10 @@ button, input, select {
     font: 800 17px Outfit;
 }
 
+.logo span {
+    color: white;
+}
+
 .brand b,
 .brand small {
     display: block;
@@ -91,13 +133,23 @@ button, input, select {
 
 .topbar nav {
     display: flex;
-    gap: 32px;
+    gap: 28px;
     font-size: 12px;
     color: #aab4c4;
 }
 
+.topbar nav a {
+    transition: color .2s;
+}
+
 .topbar nav a:hover {
     color: var(--accent);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .nav-cta {
@@ -108,7 +160,38 @@ button, input, select {
     font-weight: 700;
 }
 
-/* PORTADA */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ffffff30;
+    background: transparent;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.hamburger {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 1px solid #ffffff30;
+    border-radius: 9px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    margin: 5px 0;
+    transition: .3s;
+}
+
+/* =====================================
+   PORTADA
+===================================== */
 
 .hero {
     max-width: 1200px;
@@ -121,37 +204,11 @@ button, input, select {
     align-items: center;
 }
 
-.eyebrow {
-    color: var(--accent);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.eyebrow i {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-right: 7px;
-}
-
-h1, h2, h3 {
-    font-family: Outfit, sans-serif;
-}
-
 h1 {
     font-size: clamp(48px, 6vw, 74px);
     letter-spacing: -3px;
     line-height: .98;
     margin: 23px 0;
-}
-
-h1 em,
-h2 em {
-    font-style: normal;
-    color: var(--accent);
 }
 
 .hero-copy > p,
@@ -222,7 +279,9 @@ h2 em {
     background: #ffffff25;
 }
 
-/* FONDOS DEPORTIVOS */
+/* =====================================
+   IMAGEN PRINCIPAL
+===================================== */
 
 .visual {
     position: relative;
@@ -247,10 +306,10 @@ h2 em {
     position: absolute;
     top: 22px;
     left: 22px;
-
     display: flex;
     align-items: center;
     gap: 11px;
+    z-index: 2;
 }
 
 .photo-label > span {
@@ -289,13 +348,13 @@ h2 em {
     width: 150px;
     height: 165px;
 
-    border: 7px double #ffffff24;
+    border: 7px double #ffffff35;
     border-radius: 48% 48% 35% 35%;
 
     display: grid;
     place-items: center;
 
-    color: #ffffff35;
+    color: #ffffff45;
     font: 800 46px Outfit;
     transform: rotate(7deg);
 }
@@ -369,7 +428,9 @@ h2 em {
     margin-left: auto;
 }
 
-/* SECCIONES */
+/* =====================================
+   SECCIONES GENERALES
+===================================== */
 
 .section {
     max-width: 1150px;
@@ -385,8 +446,7 @@ h2 em {
     margin-bottom: 25px;
 }
 
-.section-heading h2,
-.booking-copy h2 {
+.section-heading h2 {
     font-size: 34px;
     letter-spacing: -1px;
     margin: 9px 0 0;
@@ -399,7 +459,146 @@ h2 em {
     line-height: 1.8;
 }
 
-/* DEPORTES */
+/* =====================================
+   CARRUSEL
+===================================== */
+
+.carousel {
+    position: relative;
+    height: 390px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #111c2d;
+}
+
+.carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .6s ease;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #050914dc, transparent 75%);
+}
+
+.slide-caption {
+    position: absolute;
+    z-index: 2;
+    bottom: 50px;
+    left: 35px;
+}
+
+.slide-caption span {
+    color: var(--accent);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.slide-caption h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+
+    border: 1px solid #ffffff70;
+    background: #08101c99;
+    color: white;
+    cursor: pointer;
+}
+
+.carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-btn.next {
+    right: 15px;
+}
+
+.carousel-dots {
+    position: absolute;
+    z-index: 3;
+    bottom: 20px;
+    right: 25px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 20px;
+    border: none;
+    background: #ffffff80;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.dot.active {
+    width: 27px;
+    background: var(--accent);
+}
+
+/* =====================================
+   FILTROS Y TARJETAS
+===================================== */
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 23px;
+}
+
+.filter-btn {
+    border: 1px solid #334158;
+    background: #111c2d;
+    color: #e5eaf2;
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #111827;
+}
 
 .sports,
 .features {
@@ -413,7 +612,6 @@ h2 em {
     border-radius: 13px;
     background: #111c2d;
     color: white;
-
     padding: 19px;
 
     display: flex;
@@ -466,13 +664,20 @@ h2 em {
     color: var(--accent);
 }
 
-/* SERVICIOS */
+.filter-result {
+    color: #929eb0;
+    font-size: 10px;
+    margin-top: 17px;
+}
+
+/* =====================================
+   SERVICIOS
+===================================== */
 
 .feature {
     border: 1px solid #293449;
     border-radius: 13px;
     padding: 23px;
-
     background: linear-gradient(145deg, #17243a, #0d1523);
     position: relative;
 }
@@ -481,7 +686,6 @@ h2 em {
     width: 37px;
     height: 37px;
     border-radius: 10px;
-
     background: var(--glow);
     color: var(--accent);
 
@@ -501,14 +705,15 @@ h2 em {
     line-height: 1.7;
 }
 
-/* RESERVAS */
+/* =====================================
+   CALCULADORA
+===================================== */
 
 .booking {
     display: grid;
     grid-template-columns: .8fr 1fr;
     gap: 85px;
     align-items: center;
-
     padding-top: 85px;
     padding-bottom: 95px;
 }
@@ -522,10 +727,8 @@ h2 em {
 .note {
     margin-top: 25px;
     padding: 13px 15px;
-
     border-left: 2px solid var(--accent);
     background: var(--glow);
-
     font-size: 10px;
     color: #cbd2dd;
 }
@@ -537,10 +740,8 @@ h2 em {
 .calculator {
     background: #f8f9fc;
     color: #152033;
-
     border-radius: 17px;
     padding: 28px;
-
     box-shadow: 0 25px 65px #0006;
 }
 
@@ -657,18 +858,149 @@ h2 em {
     margin: 11px 0 0;
 }
 
-/* PIE DE PÁGINA */
+/* =====================================
+   FORMULARIO
+===================================== */
+
+.form-section {
+    padding-bottom: 85px;
+}
+
+.reservation-form {
+    background: #111c2d;
+    border: 1px solid #293449;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #344158;
+    border-radius: 8px;
+    background: #0a1423;
+    color: white;
+    padding: 13px;
+    outline: none;
+    font-size: 11px;
+    transition: .2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--glow);
+}
+
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: #e76b6b;
+}
+
+.form-group input:valid:not(:placeholder-shown) {
+    border-color: #39bd8b;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+    font-size: 10px;
+    color: #abb6c7;
+}
+
+.terms input {
+    accent-color: var(--accent);
+}
+
+.form-submit {
+    min-width: 190px;
+}
+
+.form-message {
+    font-size: 11px;
+    margin-top: 15px;
+    color: #49d6b4;
+}
+
+/* =====================================
+   REDES SOCIALES
+===================================== */
+
+.footer-brand p {
+    font-size: 10px;
+    color: #929eb0;
+    margin-top: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    background: #19263a;
+    border: 1px solid #334158;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: #111827;
+    transform: translateY(-4px);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
 
 footer {
     max-width: 1150px;
     margin: auto;
     padding: 23px 25px 30px;
-
     border-top: 1px solid #ffffff17;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 
     color: #8490a3;
     font-size: 9px;
@@ -684,13 +1016,15 @@ footer .brand b {
     font-size: 14px;
 }
 
-/* VENTANA MODAL */
+/* =====================================
+   VENTANA MODAL
+===================================== */
 
 .modal-backdrop {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 10;
+    z-index: 100;
 
     background: #020711c9;
     backdrop-filter: blur(7px);
@@ -716,7 +1050,6 @@ footer .brand b {
     position: absolute;
     right: 14px;
     top: 10px;
-
     border: 0;
     background: none;
     font-size: 25px;
@@ -727,13 +1060,11 @@ footer .brand b {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-
     background: #e1f6eb;
     color: #13824d;
 
     display: grid;
     place-items: center;
-
     font-size: 24px;
     margin: 0 auto 15px;
 }
@@ -780,7 +1111,9 @@ footer .brand b {
     font-weight: 700;
 }
 
-/* TEMAS DINÁMICOS */
+/* =====================================
+   TEMÁTICAS DEPORTIVAS
+===================================== */
 
 .theme-wally .hero-photo {
     background-image:
@@ -812,9 +1145,103 @@ footer .brand b {
     font-size: 35px;
 }
 
-/* RESPONSIVE */
+/* =====================================
+   MODO CLARO
+===================================== */
 
-@media(max-width:850px) {
+body.light-mode {
+    background: #f3f5f9;
+    color: #172033;
+}
+
+body.light-mode .topbar {
+    border-color: #dce1e9;
+}
+
+body.light-mode .topbar nav {
+    color: #455268;
+}
+
+body.light-mode .nav-cta,
+body.light-mode .hamburger,
+body.light-mode .theme-toggle {
+    border-color: #cbd3df;
+    color: #172033;
+}
+
+body.light-mode .hero-copy > p,
+body.light-mode .booking-copy > p,
+body.light-mode .section-heading > p {
+    color: #58667a;
+}
+
+body.light-mode .section {
+    border-color: #dce1e9;
+}
+
+body.light-mode .sport-card,
+body.light-mode .feature,
+body.light-mode .reservation-form {
+    background: #ffffff;
+    color: #172033;
+    border-color: #dce1e9;
+}
+
+body.light-mode .sport-card small,
+body.light-mode .feature p,
+body.light-mode .filter-result {
+    color: #68758a;
+}
+
+body.light-mode .filter-btn {
+    background: #ffffff;
+    color: #172033;
+    border-color: #d4dce7;
+}
+
+body.light-mode .filter-btn.active {
+    background: var(--accent);
+    color: #111827;
+    border-color: var(--accent);
+}
+
+body.light-mode .form-group input,
+body.light-mode .form-group select,
+body.light-mode .form-group textarea {
+    background: #f8f9fc;
+    color: #172033;
+    border-color: #d4dce7;
+}
+
+body.light-mode .terms {
+    color: #58667a;
+}
+
+body.light-mode footer {
+    border-color: #dce1e9;
+    color: #58667a;
+}
+
+body.light-mode .social-links a {
+    background: #ffffff;
+    color: #172033;
+    border-color: #d4dce7;
+}
+
+body.light-mode .topbar nav.open {
+    background: #ffffff;
+}
+
+body.light-mode .sport-card.active {
+    background: var(--glow);
+    border-color: var(--accent);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width: 850px) {
 
     .hero {
         grid-template-columns: 1fr;
@@ -832,25 +1259,77 @@ footer .brand b {
         gap: 30px;
     }
 
-    .topbar nav {
-        gap: 15px;
+    .hamburger {
+        display: block;
     }
-}
-
-@media(max-width:600px) {
 
     .topbar {
-        height: 70px;
-        padding: 0 16px;
+        position: relative;
     }
 
     .topbar nav {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 15px;
+        right: 15px;
+        z-index: 30;
+
+        padding: 15px;
+        border-radius: 12px;
+
+        background: #142137;
+        border: 1px solid #344158;
+
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .topbar nav.open {
+        display: flex;
+    }
+
+    .topbar nav a {
+        padding: 13px;
+        border-bottom: 1px solid #ffffff15;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .topbar {
+        height: 70px;
+        padding: 0 14px;
+    }
+
+    .brand b {
+        font-size: 14px;
+    }
+
+    .brand small {
+        font-size: 7px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-actions {
+        gap: 7px;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
     }
 
     .nav-cta {
-        font-size: 9px;
-        padding: 10px;
+        display: none;
     }
 
     .hero {
@@ -894,6 +1373,19 @@ footer .brand b {
         margin-top: 10px;
     }
 
+    .carousel {
+        height: 280px;
+    }
+
+    .slide-caption {
+        left: 20px;
+        bottom: 45px;
+    }
+
+    .slide-caption h3 {
+        font-size: 20px;
+    }
+
     .sports,
     .features {
         grid-template-columns: 1fr;
@@ -916,14 +1408,26 @@ footer .brand b {
         padding: 21px;
     }
 
-    footer {
-        padding: 20px;
-        gap: 14px;
-        flex-wrap: wrap;
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
-    footer > span:last-child {
-        width: 100%;
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .reservation-form {
+        padding: 18px;
+    }
+
+    footer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .social-links {
+        margin: 10px 0;
     }
 
     .modal {
