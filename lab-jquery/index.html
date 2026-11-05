@@ -4,305 +4,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De porZone Canchas</title>
+    <meta name="description" content="De porZone Canchas: reserva espacios deportivos para fútbol, Wally y futsal.">
+    <title>De porZone | Canchas deportivas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="theme-futbol">
 
 <header class="topbar">
+
     <a class="brand" href="#inicio">
-        <span class="logo">DZ+</span>
+        <span class="logo">DZ<span>+</span></span>
         <span>
             <b>De porZone</b>
             <small>CANCHAS & EXPERIENCIAS</small>
         </span>
     </a>
 
-    <nav>
+    <nav id="main-menu">
+        <a href="#inicio">Inicio</a>
         <a href="#deportes">Deportes</a>
+        <a href="#galeria">Galería</a>
         <a href="#servicios">Servicios</a>
         <a href="#reservar">Reservar</a>
     </nav>
 
-    <a class="nav-cta" href="#reservar">Reserva ahora ↗</a>
+    <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+            ☀️
+        </button>
+
+        <a class="nav-cta" href="#reservar">Reserva ahora ↗</a>
+
+        <button class="hamburger" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
 </header>
 
 <main>
 
-<section class="hero" id="inicio">
+    <!-- PORTADA PRINCIPAL -->
 
-    <div class="hero-copy">
+    <section class="hero" id="inicio">
 
-        <span class="eyebrow">
-            <i></i> TU PRÓXIMO PARTIDO EMPIEZA AQUÍ
-        </span>
+        <div class="hero-copy">
 
-        <h1>
-            La cancha que<br>
-            te mueve <em id="hero-word">a jugar.</em>
-        </h1>
+            <span class="eyebrow">
+                <i></i> TU PRÓXIMO PARTIDO EMPIEZA AQUÍ
+            </span>
 
-        <p id="hero-description">
-            Reúne a tu equipo, elige tu horario y vive el fútbol como se debe.
-            Tu espacio deportivo está a un clic.
-        </p>
+            <h1>
+                La cancha que<br>
+                te mueve <em id="hero-word">a jugar.</em>
+            </h1>
 
-        <div class="actions">
-            <a class="btn primary" href="#reservar">
-                Reservar cancha →
-            </a>
+            <p id="hero-description">
+                Reúne a tu equipo, elige tu horario y vive el fútbol como se debe.
+                Tu espacio deportivo está a un clic.
+            </p>
 
-            <a class="simple-link" href="#deportes">
-                Explorar deportes ↓
-            </a>
-        </div>
+            <div class="actions">
+                <a class="btn primary" href="#reservar">
+                    Reservar cancha →
+                </a>
 
-        <div class="stats">
-            <div><b>3</b><small>deportes</small></div>
-            <i></i>
-            <div><b>40 BOB</b><small>por hora</small></div>
-            <i></i>
-            <div><b>24/7</b><small>reservas online</small></div>
-        </div>
+                <a class="simple-link" href="#deportes">
+                    Explorar deportes ↓
+                </a>
+            </div>
 
-    </div>
+            <div class="stats">
+                <div>
+                    <b>3</b>
+                    <small>deportes</small>
+                </div>
 
-    <div class="visual">
-
-        <div class="hero-photo">
-
-            <div class="photo-label">
-                <span id="hero-icon">⚽</span>
+                <i></i>
 
                 <div>
-                    <b id="hero-mode">MODO FÚTBOL</b>
-                    <small>ELIGE TU DEPORTE</small>
+                    <b>40 BOB</b>
+                    <small>por hora</small>
+                </div>
+
+                <i></i>
+
+                <div>
+                    <b>24/7</b>
+                    <small>reservas online</small>
                 </div>
             </div>
 
-            <div class="watermark" id="watermark">FCB</div>
+        </div>
 
-            <div class="photo-bottom">
-                <span>01 / 03</span>
-                <i></i>
-                <span id="hero-tag">PASIÓN AZULGRANA</span>
+        <div class="visual">
+
+            <div class="hero-photo">
+
+                <div class="photo-label">
+                    <span id="hero-icon">⚽</span>
+
+                    <div>
+                        <b id="hero-mode">MODO FÚTBOL</b>
+                        <small>ELIGE TU DEPORTE</small>
+                    </div>
+                </div>
+
+                <div class="watermark" id="watermark">FCB</div>
+
+                <div class="photo-bottom">
+                    <span>01 / 03</span>
+                    <i></i>
+                    <span id="hero-tag">PASIÓN AZULGRANA</span>
+                </div>
+
+            </div>
+
+            <div class="float-card">
+                <span id="float-icon">⚽</span>
+
+                <div>
+                    <b id="float-title">La pasión se juega</b>
+                    <small id="float-sub">En cada minuto.</small>
+                </div>
+
+                <strong>↗</strong>
             </div>
 
         </div>
 
-        <div class="float-card">
-            <span id="float-icon">⚽</span>
+    </section>
 
+
+    <!-- CARRUSEL -->
+
+    <section class="section gallery" id="galeria">
+
+        <div class="section-heading">
             <div>
-                <b id="float-title">La pasión se juega</b>
-                <small id="float-sub">En cada minuto.</small>
+                <span class="eyebrow">NUESTRAS INSTALACIONES</span>
+                <h2>Vive la experiencia.</h2>
             </div>
 
-            <strong>↗</strong>
+            <p>Descubre nuestros espacios deportivos y encuentra tu próximo desafío.</p>
         </div>
 
-    </div>
+        <div class="carousel">
 
-</section>
+            <div class="carousel-track">
 
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1400&q=85" alt="Instalaciones de fútbol">
 
-<section class="section" id="deportes">
+                    <div class="slide-caption">
+                        <span>01 / FÚTBOL</span>
+                        <h3>La pasión nunca se detiene.</h3>
+                    </div>
+                </div>
 
-    <div class="section-heading">
-        <div>
-            <span class="eyebrow">ENCUENTRA TU JUEGO</span>
-            <h2>¿Qué vamos a jugar?</h2>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=1400&q=85" alt="Partido de voleibol">
+
+                    <div class="slide-caption">
+                        <span>02 / WALLY</span>
+                        <h3>Cada punto cuenta.</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=85" alt="Partido de futsal">
+
+                    <div class="slide-caption">
+                        <span>03 / FUTSAL</span>
+                        <h3>Velocidad, técnica y emoción.</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-btn prev" id="prev-slide" type="button" aria-label="Imagen anterior">❮</button>
+            <button class="carousel-btn next" id="next-slide" type="button" aria-label="Imagen siguiente">❯</button>
+
+            <div class="carousel-dots">
+                <button class="dot active" data-slide="0" aria-label="Ir a imagen 1"></button>
+                <button class="dot" data-slide="1" aria-label="Ir a imagen 2"></button>
+                <button class="dot" data-slide="2" aria-label="Ir a imagen 3"></button>
+            </div>
+
         </div>
 
-        <p>
-            Selecciona un deporte y descubre una experiencia visual diferente.
-        </p>
-    </div>
-
-    <div class="sports">
-
-        <button class="sport-card active" data-sport="futbol">
-            <span class="sport-icon">⚽</span>
-            <span>
-                <b>Fútbol</b>
-                <small>Pasión de estadio</small>
-            </span>
-            <strong>↗</strong>
-        </button>
-
-        <button class="sport-card" data-sport="wally">
-            <span class="sport-icon">🏐</span>
-            <span>
-                <b>Wally</b>
-                <small>Potencia y precisión</small>
-            </span>
-            <strong>↗</strong>
-        </button>
-
-        <button class="sport-card" data-sport="futsal">
-            <span class="sport-icon">🥅</span>
-            <span>
-                <b>Futsal</b>
-                <small>Ritmo sin pausa</small>
-            </span>
-            <strong>↗</strong>
-        </button>
-
-    </div>
-
-</section>
+    </section>
 
 
-<section class="section" id="servicios">
+    <!-- DEPORTES Y FILTROS -->
 
-    <div class="section-heading">
-        <div>
-            <span class="eyebrow">MÁS QUE UNA CANCHA</span>
-            <h2>Todo listo para jugar.</h2>
-        </div>
+    <section class="section" id="deportes">
 
-        <p>
-            Espacios cómodos, reserva sencilla y tiempo para disfrutar.
-        </p>
-    </div>
-
-    <div class="features">
-
-        <article class="feature">
-            <span>◷</span>
-            <h3>Horarios flexibles</h3>
-            <p>
-                Elige la duración de tu partido y organiza tu tiempo.
-            </p>
-        </article>
-
-        <article class="feature">
-            <span>✦</span>
-            <h3>Ambiente deportivo</h3>
-            <p>
-                Un espacio pensado para compartir, competir y divertirse.
-            </p>
-        </article>
-
-        <article class="feature">
-            <span>✓</span>
-            <h3>Reserva fácil</h3>
-            <p>
-                Calcula tu tarifa y confirma tu solicitud en segundos.
-            </p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<section class="section booking" id="reservar">
-
-    <div class="booking-copy">
-
-        <span class="eyebrow">ASEGURA TU ESPACIO</span>
-
-        <h2>
-            Tu partido.<br>
-            <em>Tu horario.</em>
-        </h2>
-
-        <p>
-            Organiza tu tiempo, selecciona tu deporte y calcula
-            el costo de tu reserva.
-        </p>
-
-        <div class="note">
-            ✦ Tarifa referencial: <b>40 BOB por hora</b>
-        </div>
-
-    </div>
-
-
-    <div class="calculator">
-
-        <div class="calc-head">
+        <div class="section-heading">
             <div>
-                <span class="eyebrow">CALCULADORA</span>
-                <h3>Arma tu reserva</h3>
+                <span class="eyebrow">ENCUENTRA TU JUEGO</span>
+                <h2>¿Qué vamos a jugar?</h2>
             </div>
 
-            <span class="available">● DISPONIBLE</span>
+            <p>Selecciona un deporte y descubre una experiencia visual diferente.</p>
         </div>
 
-        <label for="sport-select">
-            Deporte seleccionado
-        </label>
+        <div class="filter-buttons">
 
-        <select id="sport-select">
-            <option value="futbol">⚽ Fútbol</option>
-            <option value="wally">🏐 Wally</option>
-            <option value="futsal">🥅 Futsal</option>
-        </select>
+            <button class="filter-btn active" data-filter="all" type="button">Todos</button>
 
-        <label for="hours">
-            Horas de reserva
-            <small>(40 BOB / hora)</small>
-        </label>
+            <button class="filter-btn" data-filter="futbol" type="button">⚽ Fútbol</button>
 
-        <div class="hours">
-            <button id="minus" type="button">−</button>
+            <button class="filter-btn" data-filter="wally" type="button">🏐 Wally</button>
 
-            <input
-                id="hours"
-                type="number"
-                min="1"
-                max="12"
-                value="1"
-            >
+            <button class="filter-btn" data-filter="futsal" type="button">🥅 Futsal</button>
 
-            <button id="plus" type="button">+</button>
         </div>
 
-        <div class="price-line">
-            <span>Precio por hora</span>
-            <b>40 BOB</b>
+        <div class="sports">
+
+            <button class="sport-card active" data-sport="futbol" data-category="futbol" type="button">
+                <span class="sport-icon">⚽</span>
+                <span>
+                    <b>Fútbol</b>
+                    <small>Pasión de estadio</small>
+                </span>
+                <strong>↗</strong>
+            </button>
+
+            <button class="sport-card" data-sport="wally" data-category="wally" type="button">
+                <span class="sport-icon">🏐</span>
+                <span>
+                    <b>Wally</b>
+                    <small>Potencia y precisión</small>
+                </span>
+                <strong>↗</strong>
+            </button>
+
+            <button class="sport-card" data-sport="futsal" data-category="futsal" type="button">
+                <span class="sport-icon">🥅</span>
+                <span>
+                    <b>Futsal</b>
+                    <small>Ritmo sin pausa</small>
+                </span>
+                <strong>↗</strong>
+            </button>
+
         </div>
 
-        <div class="total">
-            <span>Total a pagar</span>
-            <strong id="total">40 <small>BOB</small></strong>
-        </div>
-
-        <button class="btn primary confirm" id="confirm" type="button">
-            Confirmar reserva →
-        </button>
-
-        <p class="disclaimer">
-            * Demostración académica. No procesa pagos reales.
+        <p class="filter-result" id="filter-result">
+            Mostrando todos los deportes.
         </p>
 
-    </div>
+    </section>
 
-</section>
+
+    <!-- SERVICIOS -->
+
+    <section class="section" id="servicios">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">MÁS QUE UNA CANCHA</span>
+                <h2>Todo listo para jugar.</h2>
+            </div>
+
+            <p>Espacios cómodos, reserva sencilla y tiempo para disfrutar.</p>
+        </div>
+
+        <div class="features">
+
+            <article class="feature">
+                <span>◷</span>
+                <h3>Horarios flexibles</h3>
+                <p>Elige la duración de tu partido y organiza tu tiempo.</p>
+            </article>
+
+            <article class="feature">
+                <span>✦</span>
+                <h3>Ambiente deportivo</h3>
+                <p>Un espacio pensado para compartir, competir y divertirse.</p>
+            </article>
+
+            <article class="feature">
+                <span>✓</span>
+                <h3>Reserva fácil</h3>
+                <p>Calcula tu tarifa y confirma tu solicitud en segundos.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALCULADORA Y RESERVA -->
+
+    <section class="section booking" id="reservar">
+
+        <div class="booking-copy">
+
+            <span class="eyebrow">ASEGURA TU ESPACIO</span>
+
+            <h2>
+                Tu partido.<br>
+                <em>Tu horario.</em>
+            </h2>
+
+            <p>
+                Organiza tu tiempo, selecciona tu deporte y calcula
+                el costo de tu reserva.
+            </p>
+
+            <div class="note">
+                ✦ Tarifa referencial: <b>40 BOB por hora</b>
+            </div>
+
+        </div>
+
+        <div class="calculator">
+
+            <div class="calc-head">
+                <div>
+                    <span class="eyebrow">CALCULADORA</span>
+                    <h3>Arma tu reserva</h3>
+                </div>
+
+                <span class="available">● DISPONIBLE</span>
+            </div>
+
+            <label for="sport-select">Deporte seleccionado</label>
+
+            <select id="sport-select">
+                <option value="futbol">⚽ Fútbol</option>
+                <option value="wally">🏐 Wally</option>
+                <option value="futsal">🥅 Futsal</option>
+            </select>
+
+            <label for="hours">
+                Horas de reserva <small>(40 BOB / hora)</small>
+            </label>
+
+            <div class="hours">
+                <button id="minus" type="button">−</button>
+
+                <input id="hours" type="number" min="1" max="12" value="1">
+
+                <button id="plus" type="button">+</button>
+            </div>
+
+            <div class="price-line">
+                <span>Precio por hora</span>
+                <b>40 BOB</b>
+            </div>
+
+            <div class="total">
+                <span>Total a pagar</span>
+                <strong id="total">40 <small>BOB</small></strong>
+            </div>
+
+            <button class="btn primary confirm" id="confirm" type="button">
+                Confirmar reserva →
+            </button>
+
+            <p class="disclaimer">
+                * Demostración académica. No procesa pagos reales.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMULARIO -->
+
+    <section class="section form-section" id="formulario">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">CONTACTO Y RESERVAS</span>
+                <h2>Organiza tu próximo partido.</h2>
+            </div>
+
+            <p>Completa tus datos para solicitar una reserva.</p>
+        </div>
+
+        <form id="reservation-form" class="reservation-form">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre" required minlength="3" maxlength="80">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Número de teléfono</label>
+                    <input type="tel" id="telefono" placeholder="Ej. 70000000" required pattern="[0-9]{7,15}">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha de reserva</label>
+                    <input type="date" id="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora de inicio</label>
+                    <input type="time" id="hora" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-sport">Deporte</label>
+                    <select id="form-sport" required>
+                        <option value="">Seleccionar deporte</option>
+                        <option value="Fútbol">Fútbol</option>
+                        <option value="Wally">Wally</option>
+                        <option value="Futsal">Futsal</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="comentario">Mensaje adicional</label>
+                    <textarea id="comentario" rows="4" maxlength="500" placeholder="Escribe algún detalle de tu reserva..."></textarea>
+                </div>
+
+            </div>
+
+            <label class="terms">
+                <input type="checkbox" id="terms" required>
+                Acepto que mis datos sean utilizados para gestionar esta solicitud.
+            </label>
+
+            <button type="submit" class="btn primary form-submit">
+                Enviar solicitud →
+            </button>
+
+            <p id="form-message" class="form-message" role="status"></p>
+
+        </form>
+
+    </section>
 
 </main>
 
 
+<!-- PIE DE PÁGINA -->
+
 <footer>
 
-    <a class="brand" href="#inicio">
-        <span class="logo">DZ+</span>
+    <div class="footer-brand">
 
-        <span>
-            <b>De porZone</b>
-            <small>CANCHAS & EXPERIENCIAS</small>
-        </span>
-    </a>
+        <a class="brand" href="#inicio">
+            <span class="logo">DZ<span>+</span></span>
 
-    <span>Diseño Web II · Laboratorio jQuery</span>
+            <span>
+                <b>De porZone</b>
+                <small>CANCHAS & EXPERIENCIAS</small>
+            </span>
+        </a>
 
-    <span>© 2026 · Hecho para jugar en equipo</span>
+        <p>La pasión por el deporte nos une.</p>
+
+    </div>
+
+    <div class="social-links">
+
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+            f
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+            ◎
+        </a>
+
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+            ♪
+        </a>
+
+        <a href="https://wa.me/59170000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+            ☎
+        </a>
+
+    </div>
+
+    <span>© 2026 De porZone · Diseño Web II</span>
 
 </footer>
 
@@ -311,15 +508,15 @@
 
 <div class="modal-backdrop" id="modal" aria-hidden="true">
 
-    <div class="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
 
-        <button class="close" id="close">×</button>
+        <button class="close" id="close" type="button" aria-label="Cerrar">×</button>
 
         <div class="check">✓</div>
 
         <span class="eyebrow">CONFIRMACIÓN DE RESERVA</span>
 
-        <h2>¿Confirmamos tu partido?</h2>
+        <h2 id="modal-title">¿Confirmamos tu partido?</h2>
 
         <p id="summary"></p>
 
@@ -330,17 +527,17 @@
 
         <div class="modal-actions">
 
-            <button class="btn primary" id="accept">
+            <button class="btn primary" id="accept" type="button">
                 Sí, confirmar
             </button>
 
-            <button class="btn secondary" id="cancel">
+            <button class="btn secondary" id="cancel" type="button">
                 Volver
             </button>
 
         </div>
 
-        <p class="modal-message" id="modal-message"></p>
+        <p class="modal-message" id="modal-message" role="status"></p>
 
     </div>
 
@@ -351,7 +548,7 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<!-- JAVASCRIPT DEL PROYECTO -->
+<!-- CÓDIGO DEL PROYECTO -->
 
 <script src="script.js"></script>
 
