@@ -1,165 +1,255 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Mi Perfil | Yassir</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101820">
+    <meta name="description" content="Perfil personal de Yassir Ali Calle Enríquez, estudiante de Ingeniería de Sistemas.">
+    <title>Mi Perfil | Yassir Ali</title>
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/foto1.jpeg" type="image/jpeg">
 </head>
-
 <body>
-    <header class="hero" id="inicio">
-        <nav><b>YASSIR<span>.</span></b>
-            <div><a href="#pasatiempos">Pasatiempos</a><a href="#intereses">Intereses</a><a
-                    href="#horario">Horario</a><a href="#juegos">Juegos</a><a href="#musica">Música</a><a
-                    href="#contacto">Contacto</a></div>
-        </nav>
-        <div class="intro"><small>MI ESPACIO PERSONAL</small>
-            <h1>Hola, soy <em>Yassir Ali</em></h1>
-            <p>Estudiante de Ingeniería de Sistemas · Sexto semestre</p>
-        </div>
-        <div class="carousel"><button id="prev">‹</button>
-            <div class="slides" id="slides"><img src="assets/foto1.jpeg"><img src="assets/foto2.jpeg"><img
-                    src="assets/foto3.jpeg"><img src="assets/foto4.jpeg"><img src="assets/foto5.jpeg"></div><button
-                id="next">›</button>
-        </div>
-        <p class="hint">.</p>
-    </header>
-    <main>
-        <section id="pasatiempos"><small>LO QUE DISFRUTO</small>
-            <h2>Mis pasatiempos</h2>
-            <p>Actividades que suelo disfrutar en mi tiempo libre.</p>
-            <div class="grid four">
-                <article>🎮<h3>Jugar videojuegos</h3>
-                    <p>Me gusta distraerme, competir y pasar buenos momentos jugando.</p>
-                </article>
-                <article>🎧<h3>Escuchar música</h3>
-                    <p>La música me acompaña, me ayuda a relajarme y cambiar de ánimo.</p>
-                </article>
-                <article>🏍️<h3>Manejar motocicleta</h3>
-                    <p>Manejar moto me transmite libertad y me ayuda a despejar la mente y aliviar el estrés.</p>
-                </article>
-                <article>🧭<h3>Viajar</h3>
-                    <p>Me gusta conocer lugares nuevos, descubrir paisajes y vivir experiencias diferentes.</p>
-                </article>
-            </div>
-        </section>
-        <section class="alt" id="intereses"><small>APRENDER Y CRECER</small>
-            <h2>Mis intereses</h2>
-            <div class="grid four">
-                <article>💻<h3>Programación con IA</h3>
-                    <p>Mejorar en programación utilizando herramientas de inteligencia artificial y comprendiendo el
-                        código.</p>
-                </article>
-                <article>🌎<h3>Aprender inglés</h3>
-                    <p>Fortalecer mi inglés para comunicarme y acceder a nuevas oportunidades.</p>
-                </article>
-                <article>⚙️<h3>Software de computadoras</h3>
-                    <p>Aprender sobre programas, sistemas operativos y el funcionamiento del software.</p>
-                </article>
-                <article>🏋️<h3>Powerlifting</h3>
-                    <p>Conocer sus técnicas, disciplina y entrenamiento de fuerza.</p>
-                </article>
-            </div>
-        </section>
-        <section id="horario"><small>MI ORGANIZACIÓN</small>
-            <h2>Horario diario</h2>
-            <div class="tablewrap">
-                <table>
-                    <tr>
-                        <th>Horario</th>
-                        <th>Lunes a viernes</th>
-                        <th>Sábado y domingo</th>
-                    </tr>
-                    <tr>
-                        <th>Mañana a 12:00</th>
-                        <td>Apagar el despertador, levantarme, asearme y alistarme para la universidad.</td>
-                        <td>Despertar, asearme y organizar mis actividades.</td>
-                    </tr>
-                    <tr>
-                        <th>12:00 a 14:00</th>
-                        <td>Regresar y organizar mis pendientes.</td>
-                        <td>Tiempo personal y descanso.</td>
-                    </tr>
-                    <tr>
-                        <th>14:00 a 15:00</th>
-                        <td>Almorzar y convivir con mi familia.</td>
-                        <td>Almuerzo y convivencia familiar.</td>
-                    </tr>
-                    <tr>
-                        <th>15:00 a 22:00</th>
-                        <td>Jornada de trabajo.</td>
-                        <td>Trabajo o actividades personales.</td>
-                    </tr>
-                    <tr>
-                        <th>22:00 en adelante</th>
-                        <td>Cenar, descansar y prepararme para dormir.</td>
-                        <td>Cena y descanso.</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-        <section class="alt" id="juegos"><small>UN RATO DE DIVERSIÓN</small>
-            <h2>Mis juegos favoritos</h2>
-            <div class="grid four">
-                <article>🔥<h3>Free Fire</h3>
-                    <p>Acción y supervivencia.</p>
-                </article>
-                <article>🏰<h3>Clash of Clans</h3>
-                    <p>Estrategia, construcción y defensa.</p>
-                </article>
-                <article>⚔️<h3>Clash Royale</h3>
-                    <p>Estrategia y batallas con cartas.</p>
-                </article>
-                <article>🏎️<h3>Blur</h3>
-                    <p>Carreras rápidas llenas de acción.</p>
-                </article>
-            </div>
-        </section>
-        <section id="musica"><small>MI BANDA SONORA</small>
-            <h2>Música favorita</h2>
-            <div class="grid four"><a href="https://www.youtube.com/results?search_query=Bad+Bunny+Moscow+Mule">
-                    <article>♫<h3>Bad Bunny</h3>
-                        <p>Moscow Mule</p>
-                    </article>
-                </a><a href="https://www.youtube.com/results?search_query=Bad+Bunny+Titi+Me+Pregunto">
-                    <article>♫<h3>Bad Bunny</h3>
-                        <p>Tití Me Preguntó</p>
-                    </article>
-                </a><a href="https://www.youtube.com/results?search_query=Paulo+Londra+Adan+y+Eva">
-                    <article>♫<h3>Paulo Londra</h3>
-                        <p>Adán y Eva</p>
-                    </article>
-                </a><a href="https://www.youtube.com/results?search_query=Paulo+Londra+Tal+Vez">
-                    <article>♫<h3>Paulo Londra</h3>
-                        <p>Tal Vez</p>
-                    </article>
-                </a></div>
-        </section>
-        <section class="alt" id="frases"><small>IDEAS QUE INSPIRAN</small>
-            <h2>Frases</h2>
-            <div class="grid three"><img src="assets/frase1.jpeg"><img src="assets/frase2.jpeg"><img
-                    src="assets/frase3.jpeg"></div>
-        </section>
-        <section class="contact" id="contacto"><small>HABLEMOS</small>
-            <h2>Contáctame</h2>
-            <p>¿Tienes alguna consulta o propuesta? Completa todos los campos para enviar tu mensaje.</p>
-            <form id="form"><label>Nombre completo<input id="name" required
-                        placeholder="Nombre y apellido"></label><small id="nameErr"></small><label>Número de
-                    teléfono<input id="phone" type="tel" required placeholder="Número de teléfono"></label><small
-                    id="phoneErr"></small><label>Mensaje<textarea id="message" required minlength="10"
-                        placeholder="Escribe tu mensaje"></textarea></label><small id="msgErr"></small><button>Enviar
-                    mensaje</button>
-                <p id="status"></p>
-            </form>
-            <h3>Encuéntrame en mis redes</h3>
-            <div class="social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">TikTok</a></div>
-            <p class="hint">Reemplaza # por los enlaces de tus perfiles.</p>
-        </section>
-    </main>
-    <footer>© 2026 Yassir Ali Calle Enríquez</footer>
-    <script src="script.js"></script>
-</body>
+    <div class="app-container">
 
+        <header class="mobile-header">
+            <a class="brand" href="#inicio">YASSIR<span>.</span></a>
+            <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <a class="brand" href="#inicio">YASSIR<span>.</span></a>
+                <p>Sistemas · 6.º semestre</p>
+            </div>
+
+            <nav class="nav-menu" aria-label="Navegación principal">
+                <button class="nav-btn active" data-target="view-inicio"><span>⌂</span> Inicio</button>
+                <button class="nav-btn" data-target="view-perfil"><span>◉</span> Mi perfil</button>
+                <button class="nav-btn" data-target="view-musica"><span>♫</span> Música</button>
+                <button class="nav-btn" data-target="view-juegos"><span>▣</span> Videojuegos</button>
+                <button class="nav-btn" data-target="view-pasatiempos"><span>✦</span> Pasatiempos</button>
+                <button class="nav-btn" data-target="view-estudios"><span>▤</span> Estudios</button>
+                <button class="nav-btn" data-target="view-intereses"><span>⌘</span> Intereses</button>
+                <button class="nav-btn" data-target="view-rutina"><span>◷</span> Mi rutina</button>
+                <button class="nav-btn" data-target="view-contacto"><span>✉</span> Contacto</button>
+            </nav>
+
+            <button id="theme-toggle" class="theme-toggle" type="button">
+                <span id="theme-icon">☀</span>
+                <span id="theme-label">Cambiar apariencia</span>
+            </button>
+
+            <p class="sidebar-footer">© 2026 Yassir Ali</p>
+        </aside>
+
+        <main class="main-content">
+            <!-- INICIO -->
+            <section id="view-inicio" class="view active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <span class="eyebrow">BIENVENIDO A MI ESPACIO</span>
+                        <h1>Hola, soy <span>Yassir Ali</span></h1>
+                        <p>Estudiante de Ingeniería de Sistemas, apasionado por la tecnología, los videojuegos y el mundo de la programación.</p>
+                        <button class="primary-btn" data-go="view-perfil">Conóceme más <span>→</span></button>
+                    </div>
+                    <div class="hero-decoration">YA<span>.</span></div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">UN POCO DE MÍ</span>
+                        <h2>Momentos personales</h2>
+                    </div>
+                    <div class="carousel-controls">
+                        <button id="prev" aria-label="Foto anterior">‹</button>
+                        <button id="next" aria-label="Foto siguiente">›</button>
+                    </div>
+                </div>
+
+                <div class="carousel">
+                    <div class="slides" id="slides">
+                        <img src="assets/foto1.jpeg" alt="Fotografía personal 1" class="active">
+                        <img src="assets/foto2.jpeg" alt="Fotografía personal 2">
+                        <img src="assets/foto3.jpeg" alt="Fotografía personal 3">
+                        <img src="assets/foto4.jpeg" alt="Fotografía personal 4">
+                        <img src="assets/foto5.jpeg" alt="Fotografía personal 5">
+                    </div>
+                </div>
+            </section>
+
+            <!-- PERFIL -->
+            <section id="view-perfil" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">SOBRE MÍ</span>
+                    <h1>Mi perfil</h1>
+                    <p>Un vistazo a quién soy y a lo que me gusta.</p>
+                </div>
+                <div class="profile-card">
+                    <img src="assets/foto1.jpeg" alt="Fotografía de Yassir Ali" class="profile-photo">
+                    <div>
+                        <span class="eyebrow">PERFIL PERSONAL</span>
+                        <h2>Yassir Ali Calle Enríquez</h2>
+                        <p>Estudiante de Ingeniería de Sistemas de sexto semestre en la Universidad Privada Domingo Savio.</p>
+                        <div class="tag-list">
+                            <span>Estudiante</span><span>Tecnología</span><span>Videojuegos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÚSICA -->
+            <section id="view-musica" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">LO QUE ESCUCHO</span>
+                    <h1>Mi música</h1>
+                    <p>Canciones y artistas que forman parte de mi día.</p>
+                </div>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="romantica">Romántica</button>
+                    <button class="filter-btn" data-filter="alegre">Urbana</button>
+                </div>
+                <div class="grid four music-grid">
+                    <a class="content-card music-item" data-category="alegre" href="https://www.youtube.com/results?search_query=Bad+Bunny" target="_blank" rel="noopener">
+                        <div class="card-symbol">♫</div><h3>Bad Bunny</h3><p>Música urbana</p><span class="card-link">Escuchar ↗</span>
+                    </a>
+                    <a class="content-card music-item" data-category="alegre" href="https://www.youtube.com/results?search_query=Paulo+Londra" target="_blank" rel="noopener">
+                        <div class="card-symbol">♫</div><h3>Paulo Londra</h3><p>Urbano y pop</p><span class="card-link">Escuchar ↗</span>
+                    </a>
+                    <a class="content-card music-item" data-category="romantica" href="https://www.youtube.com/results?search_query=Chayanne" target="_blank" rel="noopener">
+                        <div class="card-symbol">♡</div><h3>Chayanne</h3><p>Música romántica</p><span class="card-link">Escuchar ↗</span>
+                    </a>
+                    <a class="content-card music-item" data-category="romantica" href="https://www.youtube.com/results?search_query=Ricardo+Arjona" target="_blank" rel="noopener">
+                        <div class="card-symbol">♡</div><h3>Ricardo Arjona</h3><p>Música romántica</p><span class="card-link">Escuchar ↗</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- JUEGOS -->
+            <section id="view-juegos" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">MODO GAMER</span>
+                    <h1>Mis videojuegos</h1>
+                    <p>Algunos de mis juegos favoritos.</p>
+                </div>
+                <div class="grid four">
+                    <article class="content-card game-card"><div class="card-symbol">⚔</div><h3>Free Fire</h3><p>Acción y supervivencia</p></article>
+                    <article class="content-card game-card"><div class="card-symbol">🏰</div><h3>Clash of Clans</h3><p>Estrategia</p></article>
+                    <article class="content-card game-card"><div class="card-symbol">👑</div><h3>Clash Royale</h3><p>Cartas y estrategia</p></article>
+                    <article class="content-card game-card"><div class="card-symbol">🏎</div><h3>Blur</h3><p>Carreras y velocidad</p></article>
+                </div>
+            </section>
+
+            <!-- PASATIEMPOS -->
+            <section id="view-pasatiempos" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">TIEMPO LIBRE</span>
+                    <h1>Mis pasatiempos</h1>
+                    <p>Actividades que disfruto realizar.</p>
+                </div>
+                <div class="grid two">
+                    <article class="content-card"><div class="card-symbol">🎮</div><h3>Videojuegos</h3><p>Disfruto jugar y compartir partidas.</p></article>
+                    <article class="content-card"><div class="card-symbol">♫</div><h3>Escuchar música</h3><p>La música me acompaña durante el día.</p></article>
+                    <article class="content-card"><div class="card-symbol">🏍</div><h3>Manejar motocicleta</h3><p>Conducir me ayuda a despejar la mente.</p></article>
+                    <article class="content-card"><div class="card-symbol">✈</div><h3>Viajar</h3><p>Me gusta conocer nuevos lugares.</p></article>
+                </div>
+            </section>
+
+            <!-- ESTUDIOS -->
+            <section id="view-estudios" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">FORMACIÓN</span>
+                    <h1>Mis estudios</h1>
+                    <p>Mi camino en el área tecnológica.</p>
+                </div>
+                <article class="content-card study-card">
+                    <div class="card-symbol">🎓</div>
+                    <span class="eyebrow">ACTUALMENTE</span>
+                    <h2>Ingeniería de Sistemas</h2>
+                    <h3>Universidad Privada Domingo Savio</h3>
+                    <p>Estudiante de sexto semestre, desarrollando conocimientos en programación, diseño y desarrollo de sistemas.</p>
+                </article>
+            </section>
+
+            <!-- INTERESES -->
+            <section id="view-intereses" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">LO QUE ME MOTIVA</span>
+                    <h1>Mis intereses</h1>
+                    <p>Áreas en las que quiero seguir aprendiendo.</p>
+                </div>
+                <div class="grid two">
+                    <article class="content-card"><div class="card-symbol">⌘</div><h3>Programación con IA</h3><p>Mejorar mis habilidades de programación con ayuda de herramientas de inteligencia artificial.</p></article>
+                    <article class="content-card"><div class="card-symbol">🌐</div><h3>Aprender inglés</h3><p>Seguir mejorando mi comunicación y comprensión del idioma.</p></article>
+                    <article class="content-card"><div class="card-symbol">💻</div><h3>Software y sistemas</h3><p>Conocer más sobre programas, computadoras y mantenimiento.</p></article>
+                    <article class="content-card"><div class="card-symbol">🏋</div><h3>Powerlifting</h3><p>Me interesa el entrenamiento de fuerza y la superación personal.</p></article>
+                </div>
+            </section>
+
+            <!-- RUTINA -->
+            <section id="view-rutina" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">ORGANIZACIÓN</span>
+                    <h1>Mi rutina</h1>
+                    <p>Así distribuyo normalmente mi tiempo durante la semana.</p>
+                </div>
+                <div class="routine-list">
+                    <article class="routine-item"><span class="routine-time">Mañana – 12:00</span><div><h3>Preparación y universidad</h3><p>Organizarme y cumplir con mis actividades académicas.</p></div></article>
+                    <article class="routine-item"><span class="routine-time">14:00 – 15:00</span><div><h3>Almuerzo</h3><p>Compartir el almuerzo con mi familia.</p></div></article>
+                    <article class="routine-item"><span class="routine-time">15:00 – 22:00</span><div><h3>Trabajo</h3><p>Dedicar la tarde y parte de la noche a mi trabajo.</p></div></article>
+                    <article class="routine-item"><span class="routine-time">Después de las 22:00</span><div><h3>Descanso</h3><p>Cenar, relajarme y prepararme para dormir.</p></div></article>
+                </div>
+            </section>
+
+            <!-- CONTACTO -->
+            <section id="view-contacto" class="view">
+                <div class="page-heading">
+                    <span class="eyebrow">HABLEMOS</span>
+                    <h1>Contacto</h1>
+                    <p>Déjame un mensaje mediante el siguiente formulario.</p>
+                </div>
+                <div class="contact-layout">
+                    <form id="form" class="contact-form" novalidate>
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" placeholder="Tu nombre y apellido" autocomplete="name">
+                        <small id="nameErr" class="error"></small>
+
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" placeholder="Número de teléfono" autocomplete="tel" inputmode="numeric">
+                        <small id="phoneErr" class="error"></small>
+
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" rows="4" placeholder="Escribe tu mensaje"></textarea>
+                        <small id="msgErr" class="error"></small>
+
+                        <button type="submit" class="primary-btn">Validar mensaje →</button>
+                        <p id="status" class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <div class="contact-side">
+                        <div class="card-symbol">✉</div>
+                        <h2>Conectemos</h2>
+                        <p>También puedes encontrarme en mis redes sociales.</p>
+                        <div class="social-links">
+                            <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp ↗</a>
+                            <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook ↗</a>
+                            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="main-footer">Diseñado por Yassir Ali Calle Enríquez · 2026</footer>
+        </main>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
 </html>

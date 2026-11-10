@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Yassir Ali - Perfil Personal",
+  "short_name": "YassirPerfil",
+  "description": "Aplicación web personal de Yassir Ali Calle Enríquez.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101820",
+  "theme_color": "#55d6c2",
+  "icons": [
+    {
+      "src": "./assets/foto1.jpeg",
+      "type": "image/jpeg"
+    }
+  ]
+}
