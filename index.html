@@ -3,253 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101820">
-    <meta name="description" content="Perfil personal de Yassir Ali Calle Enríquez, estudiante de Ingeniería de Sistemas.">
-    <title>Mi Perfil | Yassir Ali</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Perfil profesional y catálogo PWA de Yassir Ali Calle Enríquez - Estudiante de Ingeniería de Sistemas UPDS La Paz. Materia SIS-0141 Diseño Web II.">
+    <title>Yassir Ali Calle Enríquez | Perfil & Catálogo Profesional PWA</title>
 
+    <!-- Librerías requeridas: jQuery 3.7.1 y DOMPurify 3.1.6 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+
+    <!-- Hoja de estilos BEM Mobile-First -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Web App Manifest y Favicon -->
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="assets/foto1.jpeg" type="image/jpeg">
+    <link rel="icon" href="assets/icon-192.png" type="image/png">
 </head>
-<body>
+<body class="dark-theme">
     <div class="app-container">
 
-        <header class="mobile-header">
-            <a class="brand" href="#inicio">YASSIR<span>.</span></a>
-            <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </header>
-
-        <div id="sidebar-overlay" class="sidebar-overlay"></div>
-
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-brand">
-                <a class="brand" href="#inicio">YASSIR<span>.</span></a>
-                <p>Sistemas · 6.º semestre</p>
+        <!-- CABECERA PRINCIPAL Y METADATOS -->
+        <header class="topbar-header">
+            <div class="brand-wrapper">
+                <a class="brand-logo" href="#inicio">YASSIR<span class="brand-logo__accent">.</span></a>
+                <p class="brand-subtitle">SIS-0141 Diseño Web II · UPDS La Paz</p>
             </div>
 
-            <nav class="nav-menu" aria-label="Navegación principal">
-                <button class="nav-btn active" data-target="view-inicio"><span>⌂</span> Inicio</button>
-                <button class="nav-btn" data-target="view-perfil"><span>◉</span> Mi perfil</button>
-                <button class="nav-btn" data-target="view-musica"><span>♫</span> Música</button>
-                <button class="nav-btn" data-target="view-juegos"><span>▣</span> Videojuegos</button>
-                <button class="nav-btn" data-target="view-pasatiempos"><span>✦</span> Pasatiempos</button>
-                <button class="nav-btn" data-target="view-estudios"><span>▤</span> Estudios</button>
-                <button class="nav-btn" data-target="view-intereses"><span>⌘</span> Intereses</button>
-                <button class="nav-btn" data-target="view-rutina"><span>◷</span> Mi rutina</button>
-                <button class="nav-btn" data-target="view-contacto"><span>✉</span> Contacto</button>
+            <div class="topbar-meta">
+                <span id="estadoRed" class="badge-red badge-red--online" role="status" aria-live="polite">🟢 En Línea</span>
+                <span id="indicadorTema" class="badge-tema">Tema: Oscuro Ejecutivo</span>
+                <button id="hamburger" class="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" type="button">
+                    <span class="hamburger-btn__line"></span>
+                    <span class="hamburger-btn__line"></span>
+                    <span class="hamburger-btn__line"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- NAVEGACIÓN PRINCIPAL (HIDRATADA POR SCRIPT) -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navegación principal" data-hidratado="false">
+                <button type="button" class="nav-menu__btn nav-menu__btn--active" data-target="view-inicio">
+                    <span class="nav-menu__icono">⌂</span> Inicio
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-perfil">
+                    <span class="nav-menu__icono">◉</span> Sobre mí
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-catalogo">
+                    <span class="nav-menu__icono">❖</span> Catálogo Proyectos
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-cotizador">
+                    <span class="nav-menu__icono">⚡</span> Cotizador Servicios
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-estudios">
+                    <span class="nav-menu__icono">▤</span> Estudios UPDS
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-intereses">
+                    <span class="nav-menu__icono">⌘</span> Intereses
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-rutina">
+                    <span class="nav-menu__icono">◷</span> Mi rutina
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-musica">
+                    <span class="nav-menu__icono">♫</span> Música
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-juegos">
+                    <span class="nav-menu__icono">▣</span> Videojuegos
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-pasatiempos">
+                    <span class="nav-menu__icono">✦</span> Pasatiempos
+                </button>
+                <button type="button" class="nav-menu__btn" data-target="view-contacto">
+                    <span class="nav-menu__icono">✉</span> Contacto
+                </button>
             </nav>
 
-            <button id="theme-toggle" class="theme-toggle" type="button">
+            <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-pressed="true" aria-label="Alternar tema de apariencia">
                 <span id="theme-icon">☀</span>
-                <span id="theme-label">Cambiar apariencia</span>
+                <span id="theme-label">Activar Modo Claro</span>
             </button>
 
-            <p class="sidebar-footer">© 2026 Yassir Ali</p>
+            <p class="sidebar__creditos">© 2026 Yassir Ali Calle Enríquez</p>
         </aside>
 
-        <main class="main-content">
-            <!-- INICIO -->
-            <section id="view-inicio" class="view active">
-                <div class="hero">
-                    <div class="hero-content">
-                        <span class="eyebrow">BIENVENIDO A MI ESPACIO</span>
-                        <h1>Hola, soy <span>Yassir Ali</span></h1>
-                        <p>Estudiante de Ingeniería de Sistemas, apasionado por la tecnología, los videojuegos y el mundo de la programación.</p>
-                        <button class="primary-btn" data-go="view-perfil">Conóceme más <span>→</span></button>
-                    </div>
-                    <div class="hero-decoration">YA<span>.</span></div>
-                </div>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content" id="main-content">
 
-                <div class="section-heading">
-                    <div>
-                        <span class="eyebrow">UN POCO DE MÍ</span>
-                        <h2>Momentos personales</h2>
+            <!-- 1. INICIO -->
+            <section id="view-inicio" class="view-section view-section--active">
+                <article class="hero-box">
+                    <div class="hero-box__content">
+                        <span class="eyebrow-tag">BIENVENIDO A MI ESPACIO</span>
+                        <h1 class="hero-box__titulo">Hola, soy <span>Yassir Ali</span></h1>
+                        <p class="hero-box__desc">Estudiante de Ingeniería de Sistemas (6.º semestre) en la Universidad Privada Domingo Savio Sede La Paz. Apasionado por el desarrollo web profesional, las arquitecturas PWA y la infraestructura de sistemas.</p>
+                        <button type="button" class="primary-btn" data-go="view-perfil">Conóceme más →</button>
                     </div>
-                    <div class="carousel-controls">
-                        <button id="prev" aria-label="Foto anterior">‹</button>
-                        <button id="next" aria-label="Foto siguiente">›</button>
-                    </div>
-                </div>
+                </article>
 
-                <div class="carousel">
-                    <div class="slides" id="slides">
-                        <img src="assets/foto1.jpeg" alt="Fotografía personal 1" class="active">
-                        <img src="assets/foto2.jpeg" alt="Fotografía personal 2">
-                        <img src="assets/foto3.jpeg" alt="Fotografía personal 3">
-                        <img src="assets/foto4.jpeg" alt="Fotografía personal 4">
-                        <img src="assets/foto5.jpeg" alt="Fotografía personal 5">
-                    </div>
-                </div>
-            </section>
-
-            <!-- PERFIL -->
-            <section id="view-perfil" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">SOBRE MÍ</span>
-                    <h1>Mi perfil</h1>
-                    <p>Un vistazo a quién soy y a lo que me gusta.</p>
-                </div>
-                <div class="profile-card">
-                    <img src="assets/foto1.jpeg" alt="Fotografía de Yassir Ali" class="profile-photo">
-                    <div>
-                        <span class="eyebrow">PERFIL PERSONAL</span>
-                        <h2>Yassir Ali Calle Enríquez</h2>
-                        <p>Estudiante de Ingeniería de Sistemas de sexto semestre en la Universidad Privada Domingo Savio.</p>
-                        <div class="tag-list">
-                            <span>Estudiante</span><span>Tecnología</span><span>Videojuegos</span>
+                <div class="carousel-container">
+                    <div class="carousel-header">
+                        <div>
+                            <span class="eyebrow-tag">GALERÍA PERSONAL</span>
+                            <h2 class="seccion-titulo">Momentos personales</h2>
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" id="prev" class="carousel-btn" aria-label="Fotografía anterior">‹</button>
+                            <button type="button" id="next" class="carousel-btn" aria-label="Fotografía siguiente">›</button>
                         </div>
                     </div>
+
+                    <div class="carousel-viewport">
+                        <img src="assets/foto1.jpeg" alt="Fotografía de Yassir Ali Calle Enríquez 1" class="carousel-slide active" width="600" height="400">
+                        <img src="assets/foto2.jpeg" alt="Fotografía de Yassir Ali Calle Enríquez 2" class="carousel-slide" loading="lazy" width="600" height="400">
+                        <img src="assets/foto3.jpeg" alt="Fotografía de Yassir Ali Calle Enríquez 3" class="carousel-slide" loading="lazy" width="600" height="400">
+                        <img src="assets/foto4.jpeg" alt="Fotografía de Yassir Ali Calle Enríquez 4" class="carousel-slide" loading="lazy" width="600" height="400">
+                        <img src="assets/foto5.jpeg" alt="Fotografía de Yassir Ali Calle Enríquez 5" class="carousel-slide" loading="lazy" width="600" height="400">
+                    </div>
                 </div>
             </section>
 
-            <!-- MÚSICA -->
-            <section id="view-musica" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">LO QUE ESCUCHO</span>
-                    <h1>Mi música</h1>
-                    <p>Canciones y artistas que forman parte de mi día.</p>
-                </div>
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="romantica">Romántica</button>
-                    <button class="filter-btn" data-filter="alegre">Urbana</button>
-                </div>
-                <div class="grid four music-grid">
-                    <a class="content-card music-item" data-category="alegre" href="https://www.youtube.com/results?search_query=Bad+Bunny" target="_blank" rel="noopener">
-                        <div class="card-symbol">♫</div><h3>Bad Bunny</h3><p>Música urbana</p><span class="card-link">Escuchar ↗</span>
-                    </a>
-                    <a class="content-card music-item" data-category="alegre" href="https://www.youtube.com/results?search_query=Paulo+Londra" target="_blank" rel="noopener">
-                        <div class="card-symbol">♫</div><h3>Paulo Londra</h3><p>Urbano y pop</p><span class="card-link">Escuchar ↗</span>
-                    </a>
-                    <a class="content-card music-item" data-category="romantica" href="https://www.youtube.com/results?search_query=Chayanne" target="_blank" rel="noopener">
-                        <div class="card-symbol">♡</div><h3>Chayanne</h3><p>Música romántica</p><span class="card-link">Escuchar ↗</span>
-                    </a>
-                    <a class="content-card music-item" data-category="romantica" href="https://www.youtube.com/results?search_query=Ricardo+Arjona" target="_blank" rel="noopener">
-                        <div class="card-symbol">♡</div><h3>Ricardo Arjona</h3><p>Música romántica</p><span class="card-link">Escuchar ↗</span>
-                    </a>
-                </div>
-            </section>
+            <!-- 2. SOBRE MÍ / PERFIL -->
+            <section id="view-perfil" class="view-section">
+                <span class="eyebrow-tag">TRAYECTORIA Y PERFIL</span>
+                <h2 class="seccion-titulo">Sobre mí</h2>
+                <p class="seccion-subtitulo">Un vistazo a mi perfil académico, competencias y vocación tecnológica.</p>
 
-            <!-- JUEGOS -->
-            <section id="view-juegos" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">MODO GAMER</span>
-                    <h1>Mis videojuegos</h1>
-                    <p>Algunos de mis juegos favoritos.</p>
-                </div>
-                <div class="grid four">
-                    <article class="content-card game-card"><div class="card-symbol">⚔</div><h3>Free Fire</h3><p>Acción y supervivencia</p></article>
-                    <article class="content-card game-card"><div class="card-symbol">🏰</div><h3>Clash of Clans</h3><p>Estrategia</p></article>
-                    <article class="content-card game-card"><div class="card-symbol">👑</div><h3>Clash Royale</h3><p>Cartas y estrategia</p></article>
-                    <article class="content-card game-card"><div class="card-symbol">🏎</div><h3>Blur</h3><p>Carreras y velocidad</p></article>
-                </div>
-            </section>
-
-            <!-- PASATIEMPOS -->
-            <section id="view-pasatiempos" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">TIEMPO LIBRE</span>
-                    <h1>Mis pasatiempos</h1>
-                    <p>Actividades que disfruto realizar.</p>
-                </div>
-                <div class="grid two">
-                    <article class="content-card"><div class="card-symbol">🎮</div><h3>Videojuegos</h3><p>Disfruto jugar y compartir partidas.</p></article>
-                    <article class="content-card"><div class="card-symbol">♫</div><h3>Escuchar música</h3><p>La música me acompaña durante el día.</p></article>
-                    <article class="content-card"><div class="card-symbol">🏍</div><h3>Manejar motocicleta</h3><p>Conducir me ayuda a despejar la mente.</p></article>
-                    <article class="content-card"><div class="card-symbol">✈</div><h3>Viajar</h3><p>Me gusta conocer nuevos lugares.</p></article>
-                </div>
-            </section>
-
-            <!-- ESTUDIOS -->
-            <section id="view-estudios" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">FORMACIÓN</span>
-                    <h1>Mis estudios</h1>
-                    <p>Mi camino en el área tecnológica.</p>
-                </div>
-                <article class="content-card study-card">
-                    <div class="card-symbol">🎓</div>
-                    <span class="eyebrow">ACTUALMENTE</span>
-                    <h2>Ingeniería de Sistemas</h2>
-                    <h3>Universidad Privada Domingo Savio</h3>
-                    <p>Estudiante de sexto semestre, desarrollando conocimientos en programación, diseño y desarrollo de sistemas.</p>
+                <article class="perfil-card">
+                    <img src="assets/foto1.jpeg" alt="Fotografía de perfil de Yassir Ali Calle Enríquez" class="perfil-card__foto" width="240" height="260">
+                    <div class="perfil-card__info">
+                        <span class="eyebrow-tag">PERFIL ACADÉMICO</span>
+                        <h3 class="perfil-card__nombre">Yassir Ali Calle Enríquez</h3>
+                        <p>Estudiante de sexto semestre de la carrera de Ingeniería de Sistemas en la Universidad Privada Domingo Savio (UPDS - Sede La Paz). Enfocado en el desarrollo web moderno, diseño accesible y mantenimiento preventivo de infraestructura.</p>
+                        <div class="tag-cloud">
+                            <span class="tag-cloud__item">Ingeniería de Sistemas</span>
+                            <span class="tag-cloud__item">UPDS La Paz</span>
+                            <span class="tag-cloud__item">Diseño Web II (SIS-0141)</span>
+                            <span class="tag-cloud__item">PWA & SPA</span>
+                            <span class="tag-cloud__item">Powerlifting</span>
+                        </div>
+                    </div>
                 </article>
             </section>
 
-            <!-- INTERESES -->
-            <section id="view-intereses" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">LO QUE ME MOTIVA</span>
-                    <h1>Mis intereses</h1>
-                    <p>Áreas en las que quiero seguir aprendiendo.</p>
+            <!-- 3. CATÁLOGO PROFESIONAL (FILTRO 3 CAPAS + RETO PRO + ACORDEÓN) -->
+            <section id="view-catalogo" class="view-section">
+                <div id="contenedor-catalogo" class="catalogo-hero">
+                    <div class="catalogo-hero__header">
+                        <div id="icono-area" class="catalogo-hero__icono" aria-hidden="true">💼</div>
+                        <div>
+                            <span class="eyebrow-tag">CATÁLOGO DINÁMICO & RETO PRO</span>
+                            <h2 class="seccion-titulo">Proyectos, Habilidades y Servicios</h2>
+                            <p class="seccion-subtitulo">Explora mi portafolio interactivo mediante filtros en cascada de 3 capas y tarjetas animadas con acordeón.</p>
+                        </div>
+                    </div>
+
+                    <!-- Botones de área directos (.btn-area con fadeOut/fadeIn) -->
+                    <div class="area-buttons-bar">
+                        <button type="button" class="btn-area active" data-area="all">Todas las Áreas</button>
+                        <button type="button" class="btn-area" data-area="desarrollo">💻 Desarrollo Web</button>
+                        <button type="button" class="btn-area" data-area="sistemas">⚙️ Sistemas & Redes</button>
+                        <button type="button" class="btn-area" data-area="servicios">💼 Servicios</button>
+                    </div>
+
+                    <!-- Filtro Dinámico de 3 Capas en Cascada -->
+                    <div class="filtro-cascada">
+                        <div class="filtro-cascada__campo">
+                            <label for="filtroCapa1" class="filtro-cascada__label">Capa 1: Área General</label>
+                            <select id="filtroCapa1">
+                                <option value="all">Todas las Áreas</option>
+                                <option value="desarrollo">Desarrollo Web & Software</option>
+                                <option value="sistemas">Sistemas & Infraestructura</option>
+                                <option value="servicios">Servicios Profesionales</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-cascada__campo">
+                            <label for="filtroCapa2" class="filtro-cascada__label">Capa 2: Subcategoría Habilitada</label>
+                            <select id="filtroCapa2">
+                                <option value="all">Todas las especialidades</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-cascada__campo">
+                            <label for="filtroCapa3" class="filtro-cascada__label">Capa 3: Búsqueda en Vivo</label>
+                            <input type="text" id="filtroCapa3" placeholder="Buscar por palabra clave...">
+                        </div>
+                    </div>
+
+                    <!-- Contador interactivo de ítems seleccionados -->
+                    <div class="barra-seleccion">
+                        <span id="contadorSeleccionados" class="contador-badge">0 ítems seleccionados</span>
+                        <button type="button" id="btnContactarSeleccionados" class="primary-btn">Contactar Seleccionados ↗</button>
+                    </div>
                 </div>
-                <div class="grid two">
-                    <article class="content-card"><div class="card-symbol">⌘</div><h3>Programación con IA</h3><p>Mejorar mis habilidades de programación con ayuda de herramientas de inteligencia artificial.</p></article>
-                    <article class="content-card"><div class="card-symbol">🌐</div><h3>Aprender inglés</h3><p>Seguir mejorando mi comunicación y comprensión del idioma.</p></article>
-                    <article class="content-card"><div class="card-symbol">💻</div><h3>Software y sistemas</h3><p>Conocer más sobre programas, computadoras y mantenimiento.</p></article>
-                    <article class="content-card"><div class="card-symbol">🏋</div><h3>Powerlifting</h3><p>Me interesa el entrenamiento de fuerza y la superación personal.</p></article>
-                </div>
+
+                <!-- Grilla de Tarjetas BEM (Cargada asíncronamente con catalogo.json) -->
+                <div id="grilla-catalogo" class="grilla-catalogo"></div>
+                <p id="mensajeErrorCatalogo" class="error-msg" role="alert"></p>
             </section>
 
-            <!-- RUTINA -->
-            <section id="view-rutina" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">ORGANIZACIÓN</span>
-                    <h1>Mi rutina</h1>
-                    <p>Así distribuyo normalmente mi tiempo durante la semana.</p>
-                </div>
-                <div class="routine-list">
-                    <article class="routine-item"><span class="routine-time">Mañana – 12:00</span><div><h3>Preparación y universidad</h3><p>Organizarme y cumplir con mis actividades académicas.</p></div></article>
-                    <article class="routine-item"><span class="routine-time">14:00 – 15:00</span><div><h3>Almuerzo</h3><p>Compartir el almuerzo con mi familia.</p></div></article>
-                    <article class="routine-item"><span class="routine-time">15:00 – 22:00</span><div><h3>Trabajo</h3><p>Dedicar la tarde y parte de la noche a mi trabajo.</p></div></article>
-                    <article class="routine-item"><span class="routine-time">Después de las 22:00</span><div><h3>Descanso</h3><p>Cenar, relajarme y prepararme para dormir.</p></div></article>
-                </div>
-            </section>
+            <!-- 4. COTIZADOR DE SERVICIOS EN VIVO + MODAL + RETO PRO -->
+            <section id="view-cotizador" class="view-section">
+                <span class="eyebrow-tag">COTIZACIÓN EN VIVO</span>
+                <h2 class="seccion-titulo">Cotizador de Servicios Profesionales</h2>
+                <p class="seccion-subtitulo">Calcula el presupuesto estimado de tus requerimientos tecnológicos en moneda nacional (BOB) con actualización instantánea.</p>
 
-            <!-- CONTACTO -->
-            <section id="view-contacto" class="view">
-                <div class="page-heading">
-                    <span class="eyebrow">HABLEMOS</span>
-                    <h1>Contacto</h1>
-                    <p>Déjame un mensaje mediante el siguiente formulario.</p>
-                </div>
-                <div class="contact-layout">
-                    <form id="form" class="contact-form" novalidate>
-                        <label for="name">Nombre completo</label>
-                        <input type="text" id="name" placeholder="Tu nombre y apellido" autocomplete="name">
-                        <small id="nameErr" class="error"></small>
+                <div class="cotizador-layout">
+                    <div class="cotizador-form">
+                        <div class="campo-cotizador">
+                            <label for="servicioCotizar">Selecciona el Servicio Profesional</label>
+                            <select id="servicioCotizar">
+                                <option value="120" data-nombre="Desarrollo de Sitios Web y PWAs Responsivas">Desarrollo Web & PWA (120 BOB/hr)</option>
+                                <option value="80" data-nombre="Soporte Técnico y Cableado Estructurado LAN">Soporte Técnico & Redes (80 BOB/hr)</option>
+                                <option value="90" data-nombre="Asesoría en Proyectos Académicos de Sistemas">Asesoría Académica de Sistemas (90 BOB/hr)</option>
+                                <option value="100" data-nombre="Optimización SEO y Accesibilidad Web WCAG">Auditoría Web & Accesibilidad (100 BOB/hr)</option>
+                            </select>
+                        </div>
 
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" placeholder="Número de teléfono" autocomplete="tel" inputmode="numeric">
-                        <small id="phoneErr" class="error"></small>
+                        <div class="campo-cotizador">
+                            <label for="hrs">Horas de Asistencia Requeridas (Mínimo 1)</label>
+                            <input type="number" id="hrs" min="1" max="100" value="1" inputmode="numeric" pattern="[0-9]+" title="Solo números">
+                        </div>
 
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" rows="4" placeholder="Escribe tu mensaje"></textarea>
-                        <small id="msgErr" class="error"></small>
+                        <button type="button" id="btnAbrirModalCotizacion" class="primary-btn">Confirmar Cotización ↗</button>
+                    </div>
 
-                        <button type="submit" class="primary-btn">Validar mensaje →</button>
-                        <p id="status" class="form-status" role="status" aria-live="polite"></p>
-                    </form>
-
-                    <div class="contact-side">
-                        <div class="card-symbol">✉</div>
-                        <h2>Conectemos</h2>
-                        <p>También puedes encontrarme en mis redes sociales.</p>
-                        <div class="social-links">
-                            <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp ↗</a>
-                            <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook ↗</a>
-                            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
+                    <div class="cotizador-resumen">
+                        <span class="eyebrow-tag">DESGLOSE DEL PRESUPUESTO</span>
+                        <h3 class="info-card__titulo">Resumen Financiero</h3>
+                        <div class="resumen-desglose">
+                            <div class="resumen-fila">
+                                <span>Tarifa Base:</span>
+                                <b id="resumenTarifa">120 BOB/hr</b>
+                            </div>
+                            <div class="resumen-fila">
+                                <span>Horas Contratadas:</span>
+                                <b id="resumenHoras">1 hr(s)</b>
+                            </div>
+                            <div class="resumen-fila">
+                                <span>Subtotal:</span>
+                                <b id="resumenSubtotal">120 BOB</b>
+                            </div>
+                            <div class="resumen-fila">
+                                <span>Descuento Tarifa Flash (10%):</span>
+                                <b id="resumenDescuento">-12 BOB</b>
+                            </div>
+                            <div class="resumen-fila">
+                                <span>Monto a Cancelar:</span>
+                                <span id="totalCotizacion" class="resumen-total">108 BOB</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <footer class="main-footer">Diseñado por Yassir Ali Calle Enríquez · 2026</footer>
+            <!-- 5. ESTUDIOS -->
+            <section id="view-estudios" class="view-section">
+                <span class="eyebrow-tag">FORMACIÓN ACADÉMICA</span>
+                <h2 class="seccion-titulo">Mis estudios</h2>
+                <p class="seccion-subtitulo">Mi camino formativo y disciplina en el área de ingeniería de sistemas.</p>
+
+                <article class="info-card">
+                    <div class="info-card__icono">🎓</div>
+                    <span class="eyebrow-tag">CARRERA DE PREGRADO</span>
+                    <h3 class="info-card__titulo">Ingeniería de Sistemas · 6.º Semestre</h3>
+                    <p class="info-card__desc">Universidad Privada Domingo Savio (UPDS Sede La Paz). Materia destacada: SIS-0141 Diseño Web II bajo la tutoría del docente Ing. Miguel Angel Cruz Ramos. Desarrollo continuo de habilidades en desarrollo full-stack, redes, seguridad y bases de datos.</p>
+                </article>
+            </section>
+
+            <!-- 6. INTERESES -->
+            <section id="view-intereses" class="view-section">
+                <span class="eyebrow-tag">METAS Y MOTIVACIÓN</span>
+                <h2 class="seccion-titulo">Mis intereses</h2>
+                <p class="seccion-subtitulo">Áreas de especialización y metas de superación personal.</p>
+
+                <div class="grid-generica">
+                    <article class="info-card">
+                        <div class="info-card__icono">🤖</div>
+                        <h3 class="info-card__titulo">Programación asistida con IA</h3>
+                        <p class="info-card__desc">Aprovechar herramientas generativas para acelerar flujos de trabajo, pruebas automatizadas y refactorización de código limpio.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🌐</div>
+                        <h3 class="info-card__titulo">Dominio del idioma inglés</h3>
+                        <p class="info-card__desc">Fortalecer la lectura de documentación técnica internacional y la fluidez comunicativa en equipos multiculturales.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">💻</div>
+                        <h3 class="info-card__titulo">Hardware y sistemas operativos</h3>
+                        <p class="info-card__desc">Mantenimiento correctivo, diagnóstico de fallas físicas y despliegue de entornos Linux para servidores.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🏋️</div>
+                        <h3 class="info-card__titulo">Powerlifting & fuerza</h3>
+                        <p class="info-card__desc">Entrenamiento constante de los tres levantamientos principales, disciplina mental y perseverancia deportiva.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 7. RUTINA DIARIA -->
+            <section id="view-rutina" class="view-section">
+                <span class="eyebrow-tag">ORGANIZACIÓN DIARIA</span>
+                <h2 class="seccion-titulo">Mi rutina semanal</h2>
+                <p class="seccion-subtitulo">Distribución disciplinada de mis actividades entre academia, trabajo y descanso.</p>
+
+                <div class="routine-list">
+                    <article class="routine-row">
+                        <span class="routine-hora">Mañana – 12:00</span>
+                        <div>
+                            <h3 class="info-card__titulo">Preparación y Universidad</h3>
+                            <p class="info-card__desc">Asistencia a clases, resolución de prácticas de programación y avance académico en UPDS.</p>
+                        </div>
+                    </article>
+                    <article class="routine-row">
+                        <span class="routine-hora">14:00 – 15:00</span>
+                        <div>
+                            <h3 class="info-card__titulo">Almuerzo Familiar</h3>
+                            <p class="info-card__desc">Momento de compartir el almuerzo y despejar la mente con mi familia.</p>
+                        </div>
+                    </article>
+                    <article class="routine-row">
+                        <span class="routine-hora">15:00 – 22:00</span>
+                        <div>
+                            <h3 class="info-card__titulo">Jornada Laboral</h3>
+                            <p class="info-card__desc">Dedicar la tarde y noche a compromisos laborales y desarrollo de proyectos.</p>
+                        </div>
+                    </article>
+                    <article class="routine-row">
+                        <span class="routine-hora">Después de 22:00</span>
+                        <div>
+                            <h3 class="info-card__titulo">Descanso y Estudio</h3>
+                            <p class="info-card__desc">Cena, repaso de temas de interés, relajación y preparación para el día siguiente.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 8. MÚSICA -->
+            <section id="view-musica" class="view-section">
+                <span class="eyebrow-tag">PLAYLIST PERSONAL</span>
+                <h2 class="seccion-titulo">Mi música</h2>
+                <p class="seccion-subtitulo">Artistas y géneros que me motivan a diario durante mis horas de código y deporte.</p>
+
+                <div class="grid-generica">
+                    <article class="info-card">
+                        <div class="info-card__icono">♫</div>
+                        <h3 class="info-card__titulo">Bad Bunny</h3>
+                        <p class="info-card__desc">Música urbana y reggaetón moderno para momentos de alta energía.</p>
+                        <a href="https://www.youtube.com/results?search_query=Bad+Bunny" target="_blank" rel="noopener" class="social-link">Escuchar ↗</a>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">♫</div>
+                        <h3 class="info-card__titulo">Paulo Londra</h3>
+                        <p class="info-card__desc">Trap latino, pop urbano y rimas que transmiten perseverancia.</p>
+                        <a href="https://www.youtube.com/results?search_query=Paulo+Londra" target="_blank" rel="noopener" class="social-link">Escuchar ↗</a>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">♡</div>
+                        <h3 class="info-card__titulo">Chayanne</h3>
+                        <p class="info-card__desc">Baladas pop y ritmos románticos clásicos de gran calidad lírica.</p>
+                        <a href="https://www.youtube.com/results?search_query=Chayanne" target="_blank" rel="noopener" class="social-link">Escuchar ↗</a>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">♡</div>
+                        <h3 class="info-card__titulo">Ricardo Arjona</h3>
+                        <p class="info-card__desc">Letras reflexivas y composiciones poéticas para momentos de concentración.</p>
+                        <a href="https://www.youtube.com/results?search_query=Ricardo+Arjona" target="_blank" rel="noopener" class="social-link">Escuchar ↗</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 9. VIDEOJUEGOS -->
+            <section id="view-juegos" class="view-section">
+                <span class="eyebrow-tag">MODO GAMER</span>
+                <h2 class="seccion-titulo">Mis videojuegos</h2>
+                <p class="seccion-subtitulo">Títulos de acción y estrategia donde entreno rapidez de reflejos y toma de decisiones.</p>
+
+                <div class="grid-generica">
+                    <article class="info-card">
+                        <div class="info-card__icono">⚔️</div>
+                        <h3 class="info-card__titulo">Free Fire</h3>
+                        <p class="info-card__desc">Supervivencia Battle Royale, reflejos rápidos y trabajo en escuadra.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🏰</div>
+                        <h3 class="info-card__titulo">Clash of Clans</h3>
+                        <p class="info-card__desc">Gestión de aldeas, optimización de recursos y guerras de clanes estratégicas.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">👑</div>
+                        <h3 class="info-card__titulo">Clash Royale</h3>
+                        <p class="info-card__desc">Estrategia en tiempo real, administración de elixir y cálculo táctico de mazos.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🏎️</div>
+                        <h3 class="info-card__titulo">Blur</h3>
+                        <p class="info-card__desc">Carreras de alta velocidad combinadas con poderes especiales y adrenalina.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 10. PASATIEMPOS -->
+            <section id="view-pasatiempos" class="view-section">
+                <span class="eyebrow-tag">TIEMPO LIBRE</span>
+                <h2 class="seccion-titulo">Mis pasatiempos</h2>
+                <p class="seccion-subtitulo">Actividades que disfruto para desconectar y recargar energías.</p>
+
+                <div class="grid-generica">
+                    <article class="info-card">
+                        <div class="info-card__icono">🎮</div>
+                        <h3 class="info-card__titulo">Videojuegos con amigos</h3>
+                        <p class="info-card__desc">Compartir partidas multijugador y mantener lazos de amistad.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🎧</div>
+                        <h3 class="info-card__titulo">Escuchar música</h3>
+                        <p class="info-card__desc">Acompañar cada tarea cotidiana con la atmósfera sonora perfecta.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">🏍️</div>
+                        <h3 class="info-card__titulo">Manejar motocicleta</h3>
+                        <p class="info-card__desc">Recorrer rutas de La Paz, sentir la libertad del camino y despejar la mente.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="info-card__icono">✈️</div>
+                        <h3 class="info-card__titulo">Viajar y explorar</h3>
+                        <p class="info-card__desc">Conocer nuevas culturas, paisajes y perspectivas de vida.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 11. CONTACTO Y OFFLINE-FIRST -->
+            <section id="view-contacto" class="view-section">
+                <span class="eyebrow-tag">COMUNICACIÓN DIRECTA</span>
+                <h2 class="seccion-titulo">Contáctame</h2>
+                <p class="seccion-subtitulo">¿Tienes una propuesta de proyecto o consulta académica? Escríbeme a través de este formulario con soporte offline-first.</p>
+
+                <div class="contact-layout">
+                    <form id="form" class="contact-form" novalidate>
+                        <div class="campo-form">
+                            <label for="name">Nombre Completo *</label>
+                            <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" autocomplete="name" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+" title="Solo letras y espacios" required>
+                            <span id="nameErr" class="error-msg" role="alert"></span>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" autocomplete="email" required>
+                            <span id="emailErr" class="error-msg" role="alert"></span>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="phone">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Ej. 70012345" autocomplete="tel" inputmode="numeric" pattern="[0-9]{7,15}" title="Solo números (entre 7 y 15 dígitos)" required>
+                            <span id="phoneErr" class="error-msg" role="alert"></span>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="message">Mensaje o Requerimiento *</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Describe brevemente tu consulta..." required></textarea>
+                            <span id="msgErr" class="error-msg" role="alert"></span>
+                        </div>
+
+                        <button type="submit" class="primary-btn">Enviar Mensaje →</button>
+                        <div id="alertaExito" class="alerta-exito" role="status" style="display:none;"></div>
+                        <p id="estadoColaOffline" class="estado-cola-offline" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <div class="info-card">
+                        <div class="info-card__icono">✉️</div>
+                        <h3 class="info-card__titulo">Redes de Contacto</h3>
+                        <p class="info-card__desc">También puedes comunicarte directamente por mis plataformas sociales oficiales:</p>
+                        <div class="social-contacto">
+                            <a href="https://wa.me/" target="_blank" rel="noopener" class="social-link">WhatsApp Directo ↗</a>
+                            <a href="https://facebook.com/" target="_blank" rel="noopener" class="social-link">Perfil de Facebook ↗</a>
+                            <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link">Instagram Oficial ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="main-footer">
+                <p>Diseñado y desarrollado por <b>Yassir Ali Calle Enríquez</b> · SIS-0141 Diseño Web II · UPDS Sede La Paz · 2026</p>
+            </footer>
         </main>
     </div>
 
+    <!-- BARRA DOCK DE ACCIONES Y SIMULACIÓN (ESPECIFICACIÓN K) -->
+    <aside class="dock-acciones" aria-label="Herramientas de simulación y auditoría">
+        <button type="button" id="btnSimularContraste" class="dock-btn" aria-label="Simular alto contraste">
+            <span>👁️</span> Contraste
+        </button>
+        <button type="button" id="btnSimularVista" class="dock-btn" aria-label="Simular vista móvil">
+            <span>📱</span> Vista Móvil
+        </button>
+        <button type="button" id="btnAuditarA11Y" class="dock-btn" aria-label="Auditar accesibilidad">
+            <span>♿</span> A11Y
+        </button>
+        <button type="button" id="btnSmokeTest" class="dock-btn" aria-label="Ejecutar prueba de humo">
+            <span>🧪</span> Smoke Test
+        </button>
+        <button type="button" id="btnAccesoLogin" class="dock-btn" aria-label="Simular inicio de sesión">
+            <span>🔑</span> Login
+        </button>
+        <button type="button" id="btnInstalarApp" class="dock-btn" aria-label="Instalar aplicación PWA" hidden>
+            <span>📥</span> Instalar
+        </button>
+    </aside>
+
+    <!-- REPORTES DE AUDITORÍA FLOTANTES (REQUERIMIENTO K) -->
+    <p id="reporteA11Y" class="dock-salida" role="status" aria-live="polite"></p>
+    <p id="salidaAudit" class="dock-salida" aria-live="polite"></p>
+
+    <!-- MODAL REAL: CONFIRMAR COTIZACIÓN (REQUERIMIENTO D) -->
+    <div id="modalCotizacion" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" style="display:none;">
+        <div class="modal-card">
+            <button type="button" id="btnCerrarModal" class="modal-close-btn" aria-label="Cerrar modal de cotización">✕</button>
+            <h3 id="modalTitulo" class="modal-titulo">Confirmar Cotización</h3>
+            <p id="detalleServicioModal" class="info-card__desc">Servicio: Desarrollo Web</p>
+            <p class="modal-monto">Monto a Cancelar: <b id="montoCancelar">0 BOB</b></p>
+            <p class="modal-timer">Tiempo Restante para Confirmar: <span id="timerCotizacion">00:30s</span></p>
+            <div class="modal-acciones">
+                <button type="button" id="btnCancelarCotizacion" class="btn-secundario">Cancelar</button>
+                <button type="button" id="btnProcesarPago" class="primary-btn">Procesar Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL REAL: LOGIN SIMULADO CLIENTE (REQUERIMIENTO J) -->
+    <div id="modalLogin" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalLoginTitulo" style="display:none;">
+        <div class="modal-card">
+            <button type="button" id="btnCerrarLogin" class="modal-close-btn" aria-label="Cerrar ventana de acceso">✕</button>
+            <h3 id="modalLoginTitulo" class="modal-titulo">Acceso Estudiantil Simulado</h3>
+            <p class="info-card__desc">Validación client-side segura (sin envío de credenciales a servidores externos).</p>
+            <div class="campo-form" style="margin-top: 14px;">
+                <label for="loginUsuario">Usuario o Carnet Estudiantil</label>
+                <input type="text" id="loginUsuario" placeholder="Ej. yassir.calle">
+            </div>
+            <div class="campo-form">
+                <label for="loginClave">Clave de Acceso</label>
+                <input type="password" id="loginClave" placeholder="••••••••">
+            </div>
+            <p id="loginSalida" class="error-msg" role="alert" style="display:block; min-height: 20px;"></p>
+            <div class="modal-acciones" style="margin-top: 16px;">
+                <button type="button" id="btnEjecutarLogin" class="primary-btn">Ingresar al Sistema</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST ALERT FLOTANTE (CONFIRMACIÓN DE PAGO) -->
+    <div id="toastAlerta" class="toast-alerta" role="alert" style="display:none;"></div>
+
+    <!-- SCRIPT PRINCIPAL JQUERY & PWA -->
     <script src="script.js" defer></script>
 </body>
 </html>

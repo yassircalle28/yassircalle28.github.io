@@ -1,18 +1,31 @@
 {
   "id": "./",
-  "name": "Yassir Ali - Perfil Personal",
+  "name": "Yassir Ali Calle Enríquez - Perfil y Catálogo Profesional",
   "short_name": "YassirPerfil",
-  "description": "Aplicación web personal de Yassir Ali Calle Enríquez.",
+  "description": "Portafolio y catálogo interactivo PWA de Yassir Ali Calle Enríquez - UPDS SIS-0141.",
   "lang": "es",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#101820",
-  "theme_color": "#55d6c2",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#f97316",
   "icons": [
     {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
       "src": "./assets/foto1.jpeg",
+      "sizes": "320x320",
       "type": "image/jpeg"
     }
   ]
